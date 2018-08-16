@@ -1,0 +1,25 @@
+# UNIX
+alias ll="ls -al"
+alias ln="ln -v"
+alias mkdir="mkdir -p"
+alias e="$EDITOR"
+alias v="$VISUAL"
+
+# ZSH
+alias wtf="source ~/.zshrc"
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
+alias zshaliases="code ~/.zsh_aliases"
+alias top="top -o cpu"
+
+# GIT
+alias gs="git status"
+alias gad="git add -A"
+alias gcm="git checkout master"
+
+# PATH PRETTY PRINT
+alias path='echo $PATH | tr -s ":" "\n"'
+
+# CUSTOM SHORTCUTS
+alias kd="cd ~/Documents/codebase"
+alias ht="cd /Applications/MAMP/htdocs"
