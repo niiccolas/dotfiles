@@ -2,6 +2,7 @@
 
 #The installation/setup script is contained within a function
 macSetup() {
+  echo "\n\033[31m******************************************************************\033[0m\n"
   # Check for Homebrew and install if we don't have it
   if test ! $(which brew); then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -65,6 +66,12 @@ macSetup() {
   sudo rm -rf ~/Library/Fonts
   # and Symlink Sync.com's fonts folder
   ln -s ~/Sync/Fonts ~/Library/Fonts
+
+  # Launch Paragon NTFS installation if the program is not installed yet
+  if [ ! -e /Applications/NTFS\ for\ Mac.app ]
+  then
+    open -a /usr/local/Caskroom/paragon-ntfs/15/FSInstaller.app
+  fi
 }
 
 # Ask for user confirmation before running the installation script
@@ -74,19 +81,22 @@ echo "\033[31m* This script will install apps & change your computer settings  *
 echo "\033[31m******************************************************************\033[0m"
 
 while true; do
-    read "response?Are you sure you want to proceed? [y/n]"
-    response=${response:l} #tolower
-    case "$response" in
+   read -p "Proceed? (y/n) " -n 1 -r
+    case "$REPLY" in
         [yY]*)
             macSetup
-            echo "\n👌 Installation complete.\n Some of the changes require a logout/restart to take effect."
+            echo "\n\033[31m******************************************************************\033[0m"
+            echo "👌 Installation complete."
+            echo "Some of the changes require a logout/restart to take effect.\n"
             break
             ;;
         [nN]*)
-            echo "Installation canceled! Bye. 👋\n"
-            return 1
+            echo "\n\033[31m******************************************************************\033[0m"
+            echo "Installation canceled!\nBye. 👋\n"
+            break
             ;;
          *)
-            echo '\033[31mInvalid input. Answer typing \033[7my\033[27mes or \033[7mn\033[27mo \033[0m\n' >&2
+            echo "\n\033[31mInvalid input!" >&2
+            echo "Answer typing \033[7my\033[27mes or \033[7mn\033[27mo \033[0m\n" >&2
     esac
 done

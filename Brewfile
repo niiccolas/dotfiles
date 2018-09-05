@@ -96,15 +96,10 @@ cask 'namechanger'
 cask 'cool-retro-term'
 
 cask 'paragon-ntfs'
-# Run Paragon-ntfs installer
-open -a /usr/local/Caskroom/paragon-ntfs/15/FSInstaller.app
-
 cask 'michaelvillar-timer'
 cask 'easyfind'
 cask 'find-empty-folders'
-
 cask 'raindropio'
-
 
 # Dev
 cask 'postman'
