@@ -22,7 +22,8 @@ find ~ -name .DS_Store -type f -delete
 defaults write com.apple.finder CreateDesktop false
 
 # Set computer name
-echo -e '\n🤖 \033[1m\e[31mChoose a name for your computer:\033[0m'
+echo "\n\033[31m******************************************************************\033[0m"
+echo "\033[1m\033[31m🤖 Choose a name for your computer:\033[0m"
 read computerName
 
 sudo scutil --set ComputerName $computerName
@@ -76,8 +77,9 @@ defaults write com.apple.CrashReporter DialogType -string "none"
 # in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
-# Set custom message in the login window
-echo -e '\n🤖 \033[1m\e[31mSet a custom message to appear at the bottom of the login window:\033[0m'
+# Set a custom message for the login window
+echo "\n\033[31m******************************************************************\033[0m"
+echo "\033[1m\033[31m🤖 Set a custom message to appear on the login window:\033[0m"
 read customMessage
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "$customMessage"
 
@@ -108,13 +110,6 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Disable hibernation (speeds up entering sleep mode)
 sudo pmset -a hibernatemode 0
-
-# Remove the sleep image file to save disk space
-sudo rm /private/var/vm/sleepimage
-# Create a zero-byte file instead…
-sudo touch /private/var/vm/sleepimage
-# …and make sure it can’t be rewritten
-sudo chflags uchg /private/var/vm/sleepimage
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
