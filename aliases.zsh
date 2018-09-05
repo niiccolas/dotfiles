@@ -1,5 +1,5 @@
 # Shortcuts
-alias zload="source $HOME/.zshrc"
+alias zrc="source $HOME/.zshrc"
 alias zconf="code ~/.zshrc"
 alias ohconf="code ~/.oh-my-zsh"
 alias top="top -o cpu"
@@ -20,7 +20,6 @@ alias sites="cd $HOME/Sites"
 # Git
 alias commit="git commit -am"
 alias gcommit="git commit -a"
-alias gad="git add -A"
 alias gcm="git checkout master"
 alias gs="git status"
 alias gc="git checkout"

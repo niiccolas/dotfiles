@@ -94,5 +94,10 @@ export LC_TIME=fr_FR.UTF-8
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# include Z
+# Include Z
 . /usr/local/etc/profile.d/z.sh
+
+# If the dotfiles folder has an alias file, then use the . builtin (aka source) to import it
+if [ -f $DOTFILES/aliases.zsh ]; then
+  . $DOTFILES/aliases.zsh
+fi
