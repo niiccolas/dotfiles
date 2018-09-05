@@ -86,8 +86,9 @@ while true; do
         [yY]*)
             macSetup
             echo "\n\033[31m******************************************************************\033[0m"
-            echo "👌 Installation complete."
-            echo "Some of the changes require a logout/restart to take effect.\n"
+            echo "\033[1m\033[31m* 👌 Installation complete.                                      *\033[0m"
+            echo "\033[31m* Some of the changes require a logout/restart to take effect.   *\033[0m"
+            echo "\033[31m******************************************************************\033[0m"
             break
             ;;
         [nN]*)

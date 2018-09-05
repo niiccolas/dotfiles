@@ -23,7 +23,7 @@ defaults write com.apple.finder CreateDesktop false
 
 # Set computer name
 echo "\n\033[31m******************************************************************\033[0m"
-echo "\033[1m\033[31m🤖 Choose a name for your computer:\033[0m"
+echo "\033[31m🤖 Choose a name for your computer:\033[0m"
 read computerName
 
 sudo scutil --set ComputerName $computerName
@@ -79,7 +79,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 
 # Set a custom message for the login window
 echo "\n\033[31m******************************************************************\033[0m"
-echo "\033[1m\033[31m🤖 Set a custom message to appear on the login window:\033[0m"
+echo "\033[31m🤖 Set a custom message to appear on the login window:\033[0m"
 read customMessage
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "$customMessage"
 
