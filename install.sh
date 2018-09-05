@@ -36,6 +36,11 @@ macSetup() {
   # then run the plugins installation
   vim +PlugInstall +qall
 
+  # Remove .gitconfig from $HOME (if it exists)...
+  rm -rf $HOME/.gitconfig
+  # and symlink the .gitconfig file from the .dotfiles
+  ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
+
   # Symlink the Mackup config file to the home directory
   ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
 
