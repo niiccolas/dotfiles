@@ -41,6 +41,16 @@ macSetup() {
   # and symlink the .gitconfig file from the .dotfiles
   ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 
+  # Remove .gitmessage.txt from $HOME (if it exists)...
+  rm -rf $HOME/.gitmessage.txt
+  # and symlink the .gitmessage.txt file from the .dotfiles
+  ln -s $HOME/.dotfiles/.gitmessage.txt $HOME/.gitmessage.txt
+
+  # Remove .gitignore_global from $HOME (if it exists)...
+  rm -rf $HOME/.gitignore_global
+  # and symlink the .gitignore_global file from the .dotfiles
+  ln -s $HOME/.dotfiles/.gitignore_global $HOME/.gitignore_global
+
   # Symlink the Mackup config file to the home directory
   ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
 

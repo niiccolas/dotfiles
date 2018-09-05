@@ -1,0 +1,11 @@
+
+
+# Subject line (try to keep under 50 characters)
+#
+# Multi-line description of commit.
+# This should answer:
+# — Why was this change necessary?
+# — How does it address the problem?
+# — Are there any side effects?
+#
+# Include a link to the ticket, if any.
