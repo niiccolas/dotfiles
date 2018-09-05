@@ -8,3 +8,5 @@
 	helper = osxkeychain
 [commit]
 	template = ~/.gitmessage.txt
+[color]
+  ui = auto
