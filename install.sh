@@ -2,9 +2,24 @@
 
 #The installation/setup script is contained within a function
 macSetup() {
-  echo "\033[31m\n******************************************************************\033[0m"
   # Ask for the administrator password upfront
   sudo -v
+  echo "\033[31m\n******************************************************************\033[0m"
+
+  # Set a custom computer name
+  read -p "Type a computer name: " #-n 1 -r
+  # echo "Choose a name for your computer:"; read computerName
+  echo "\033[31m******************************************************************\033[0m"
+  sudo scutil --set ComputerName $REPLY
+  sudo scutil --set LocalHostName $REPLY
+  sudo scutil --set HostName $REPLY
+  #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb. server NetBIOSName -string $REPLY
+
+  # Set a custom message for the computer login window
+  read -p "Type a login message: " #-n 1 -r
+  echo $REPLY
+  sudo defaults write   /Library/Preferences/com.apple.loginwindow  LoginwindowText "$REPLY"
+  echo "\033[31m******************************************************************\033[0m"
 
   # Keep-alive: update existing `sudo` time stamp until `install.sh` has finished
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -90,7 +105,7 @@ echo "\033[31m* This script will install apps & change your computer settings  *
 echo "\033[31m******************************************************************\033[0m"
 
 while true; do
-   read -p "Proceed? (y/n) " -n 1 -r
+   read -p "Proceed? (y/n): " -n 1 -r
     case "$REPLY" in
         [yY]*)
             macSetup
