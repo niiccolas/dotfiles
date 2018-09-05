@@ -68,10 +68,11 @@ macSetup() {
 }
 
 # Ask for user confirmation before running the installation script
-echo "\n\e[31m******************************************************************\e[0m"
-echo -e '\033[1m\e[31m* 🤖 Setting up your Mac!                                        *\e[0m'
-echo "\e[31m* This script will install apps & change your computer settings  *\e[0m"
-echo "\e[31m******************************************************************\e[0m"
+echo "\n\033[31m******************************************************************\033[0m"
+echo "\033[1m\033[31m* 🤖 Setting up your Mac!                                        *\033[0m"
+echo "\033[31m* This script will install apps & change your computer settings  *\033[0m"
+echo "\033[31m******************************************************************\033[0m"
+
 while true; do
     read "response?Are you sure you want to proceed? [y/n]"
     response=${response:l} #tolower
@@ -86,6 +87,6 @@ while true; do
             return 1
             ;;
          *)
-            echo '\e[31mInvalid input. Answer typing \e[7my\e[27mes or \e[7mn\e[27mo \e[0m\n' >&2
+            echo '\033[31mInvalid input. Answer typing \033[7my\033[27mes or \033[7mn\033[27mo \033[0m\n' >&2
     esac
 done
