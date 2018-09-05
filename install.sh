@@ -2,7 +2,16 @@
 
 #The installation/setup script is contained within a function
 macSetup() {
-  echo "\n\033[31m******************************************************************\033[0m\n"
+  echo "\033[31m\n******************************************************************\033[0m"
+  # Ask for the administrator password upfront
+  sudo -v
+
+  # Keep-alive: update existing `sudo` time stamp until `install.sh` has finished
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+  echo "\033[31m  Installation started. Please be patient \033[0m"
+  echo "\033[31m******************************************************************\033[0m"
+
   # Check for Homebrew and install if we don't have it
   if test ! $(which brew); then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -87,8 +96,8 @@ while true; do
             macSetup
             echo "\n\033[31m******************************************************************\033[0m"
             echo "\033[1m\033[31m* 👌 Installation complete.                                      *\033[0m"
-            echo "\033[31m* Some of the changes require a logout/restart to take effect.   *\033[0m"
-            echo "\033[31m******************************************************************\033[0m"
+            echo "\033[31m* Some of the changes require a logout/restart to take effect    *\033[0m"
+            echo "\033[31m******************************************************************\n\033[0m"
             break
             ;;
         [nN]*)

@@ -11,7 +11,10 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Clear the .DS_Store files
-sudo rm /.DS_Store
+if [ -f /.DS_Store ]
+  then
+    sudo rm /.DS_Store
+fi
 find ~ -name .DS_Store -type f -delete
 
 ###############################################################################
@@ -23,8 +26,9 @@ defaults write com.apple.finder CreateDesktop false
 
 # Set computer name
 echo "\n\033[31m******************************************************************\033[0m"
-echo "\033[31m🤖 Choose a name for your computer:\033[0m"
+echo "\033[31m  Choose a name for your computer:\033[0m "
 read computerName
+echo "\033[31m******************************************************************\033[0m"
 
 sudo scutil --set ComputerName $computerName
 sudo scutil --set LocalHostName $computerName
@@ -78,8 +82,7 @@ defaults write com.apple.CrashReporter DialogType -string "none"
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 # Set a custom message for the login window
-echo "\n\033[31m******************************************************************\033[0m"
-echo "\033[31m🤖 Set a custom message to appear on the login window:\033[0m"
+echo "\033[31m  Set a custom message to appear on the login window:\033[0m "
 read customMessage
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "$customMessage"
 
@@ -389,16 +392,12 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 # Spotlight                                                                   #
 ###############################################################################
 
-# Hide Spotlight tray-icon (and subsequent helper)
-sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
-
 # Load new settings before rebuilding the index
 killall mds > /dev/null 2>&1
 # Make sure indexing is enabled for the main volume
 sudo mdutil -i on / > /dev/null
 # Rebuild the index from scratch
 sudo mdutil -E / > /dev/null
-
 
 ###############################################################################
 # Terminal                                                                    #
