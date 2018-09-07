@@ -39,7 +39,7 @@ macSetup() {
   brew tap homebrew/bundle
   brew bundle
 
-  # Upgrade installed Brew Casks with newer versions
+  # Upgrade installed Brew Casks
   brew cask upgrade
 
   # Make ZSH the default shell environment
