@@ -84,6 +84,10 @@ macSetup() {
 
   # Install iterm2 Shell Integration
   curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+  # Specify the iTerm2 preferences directory
+  defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfiles/iterm2"
+  # Tell iTerm2 to use the custom preferences in the directory
+  defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
   # Set macOS preferences
   # We will run this last because this will reload the shell
