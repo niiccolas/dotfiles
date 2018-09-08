@@ -17,9 +17,10 @@ alias library="cd $HOME/Library"
 alias sites="cd $HOME/Sites"
 
 # Git
-alias commit="git commit -am"
-alias gcommit="git commit -a"
-alias gcm="git checkout master"
+alias gca="git commit -a"
+alias gcm="git commit -m"
+alias gcam="git commit -am"
+alias gchm="git checkout master"
 alias gs="git status"
 alias gc="git checkout"
 alias gd="git diff"
