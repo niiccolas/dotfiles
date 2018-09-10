@@ -10,6 +10,7 @@ alias s="subl"
 alias history="history -i"
 alias find="find ~/ -name"
 alias t="trash"
+alias path='echo $PATH | tr -s ":" "\n"' # Pretty print $PATH
 
 # Directories
 alias dotfiles="cd $DOTFILES"
