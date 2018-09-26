@@ -101,3 +101,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 if [ -f $DOTFILES/aliases.zsh ]; then
   . $DOTFILES/aliases.zsh
 fi
+
+# Print out a random short (-s) epigram as the shell starts
+echo "\e[0;35m$(fortune -s)\e[0m\n"
