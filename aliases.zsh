@@ -2,7 +2,7 @@
 alias zrc="source $HOME/.zshrc"
 alias zconf="code ~/.zshrc"
 alias ohconf="code ~/.oh-my-zsh"
-alias top="top -o cpu"
+alias ht="htop"
 alias copyssh="pbcopy < $HOME/.ssh/id_rsa.pub"
 alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias ll="$(brew --prefix coreutils)/libexec/gnubin/ls -ahlF --color --group-directories-first"
