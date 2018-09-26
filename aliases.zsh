@@ -6,11 +6,12 @@ alias top="top -o cpu"
 alias copyssh="pbcopy < $HOME/.ssh/id_rsa.pub"
 alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias ll="$(brew --prefix coreutils)/libexec/gnubin/ls -ahlF --color --group-directories-first"
-alias s="subl"
 alias history="history -i"
 alias find="find ~/ -name"
+alias s="subl"
 alias t="trash"
-alias path='echo $PATH | tr -s ":" "\n"' # Pretty print $PATH
+alias o="open"
+alias path='echo $PATH | tr -s ":" "\n"' # Pretty print $
 
 # Directories
 alias dotfiles="cd $DOTFILES"
@@ -39,3 +40,5 @@ wttr() { curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Paris}?2" }
 stats() { fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a; }' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10 }
 # If no filename is specified, Text editor (vscode) opens current directory
 c() { code ${1:-.} }
+# Z-find a folder and open it in editor
+zc() { z ${1:-.}; c }
