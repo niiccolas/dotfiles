@@ -1,22 +1,19 @@
 # Taps
 tap 'caskroom/cask'
+tap 'buo/cask-upgrade' # <brew cu> Upgrades outdated Cask apps (https://github.com/buo/homebrew-cask-upgrade)
 tap 'caskroom/eid'
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'homebrew/bundle'
-# Cask of drivers (https://github.com/Homebrew/homebrew-cask-drivers)
-tap 'homebrew/cask-drivers'
+tap 'homebrew/cask-drivers' # Cask of drivers (https://github.com/Homebrew/homebrew-cask-drivers)
 
-# Install Binaries
-#Amazon Web Services, no need for it yet
-#brew 'awscli'
+# Shell
 brew 'bash' # Bash 4
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'colordiff'
 brew 'git'
 brew 'grep'
-brew 'mackup'
-brew 'mas'
+brew 'mas' # Mac App Store from the CLI
 brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 brew 'htop'
 brew 'trash'
@@ -25,113 +22,92 @@ brew 'z'
 brew 'zsh'
 brew 'zsh-autosuggestions'
 brew 'zsh-completions'
+brew 'translate-shell'
+brew 'fortune'
 
-# Development
+# Dev
 brew 'php'
 brew 'mysql'
 brew 'node'
-brew 'neovim'
-
-# IMAGES
-brew 'imageoptim-cli'
-cask 'imageoptim'
-
-# Apps
-cask 'aerial'
-cask 'alfred'
-cask 'caffeine'
-cask 'docker'
-cask 'dropbox'
-cask 'hazel'
-cask 'sublime-text'
-cask 'etcher' #Flash OS images to SD cards & USB drives
-cask 'rocket'
-
-cask 'firefox'
-cask 'thunderbird'
-cask 'google-backup-and-sync'
-cask 'google-chrome'
-cask 'gpg-suite'
-cask 'grammarly'
-cask 'insomnia'
+brew 'vim'
 cask 'java'
 cask 'mysqlworkbench'
-cask 'now'
+cask 'mamp'
+cask 'sublime-text'
+cask 'visual-studio-code'
+cask 'typora' # Markdown editor
+cask 'postman'
+cask 'cyberduck'
+cask 'meld' # GUI diff tool
+brew 'lorem' # CLI Lorem Ipsum generator
+cask 'transmit'
+cask 'tower'
+cask 'now' # Project deployment
+cask 'docker'
+cask 'insomnia' # REST client
+cask 'virtualbox'
+cask 'virtualbox-extension-pack'
+cask 'focus' # No focus, no dev
+cask 'timing'
+cask 'iterm2'
+cask 'cool-retro-term'
+cask 'imageoptim' # Image optimization
+brew 'imageoptim-cli'
+brew 'mackup'
 
-#collaboration tool
+# Collaboration
 cask 'quip'
 cask 'shuttle'
 cask 'slack'
+cask 'zeplin'
+cask 'skype'
 
-cask 'tower'
-cask 'transmit'
-cask 'vagrant'
-cask 'virtualbox'
-cask 'virtualbox-extension-pack'
+# Internet
+cask 'google-chrome'
+cask 'google-backup-and-sync'
+cask 'firefox'
+cask 'thunderbird'
+cask 'raindropio' # Bookmarks sync service
+cask 'dropbox'
+cask 'sync'
+cask 'qbittorrent'
 
 # Video
-# cask 'handbrake'
-# cask 'aegisub'
 cask 'vlc'
 cask 'mpv'
-cask 'caption' #subtitles
+cask 'caption' # Subtitles retriever
+cask 'musicbrainz-picard'
+cask 'mediahuman-audio-converter'
 
-#ADDENDUM NIIC
-cask 'malwarebytes'
-cask 'timing'
-cask 'sync'
-cask 'focus'
-cask 'mullvadvpn'
+# macOs
+cask 'alfred'
+cask 'bartender'
+cask 'appcleaner'
+cask 'etcher' # Flash IMG/ISO to USB
+cask 'cronnix' # Cron jobs manager
+cask 'desktoputility' # Show/hide desktop, library, dotfiles
+cask 'spectacle' # Window manager
+cask 'caffeine'
+cask 'rocket' # Emojis galore 🎷
+cask 'numi'
+cask 'aerial' # Apple TV Aerial Views Screen Saver
 cask 'meteorologist'
-cask 'iterm2'
-cask 'keepassxc'
-cask 'typora'
-cask 'visual-studio-code'
-cask 'desktoputility'
-cask 'switchhosts'
-cask 'spectacle'
-cask 'daisydisk'
+cask 'michaelvillar-timer'
+cask 'freefilesync'
+cask 'daisydisk' # Disk usage stats
+cask 'grandperspective' # Disk usage stats
+cask 'hazel' # Automated folder organization
+cask 'find-empty-folders'
 cask 'dupeguru'
 cask 'namechanger'
-cask 'cool-retro-term'
-
-cask 'paragon-ntfs'
-cask 'michaelvillar-timer'
 cask 'easyfind'
-cask 'find-empty-folders'
-cask 'raindropio'
-
-# Dev
-cask 'postman'
-
-# Computer tasks
-cask 'freefilesync'
-cask 'qbittorrent'
-cask 'radio-silence'
-cask 'grandperspective'
-cask 'appcleaner'
-cask 'cyberduck'
-
-cask 'numi'
-cask 'garmin-express'
+cask 'paragon-ntfs'
+cask 'grammarly'
 cask 'libreoffice'
 cask 'libreoffice-language-pack'
 cask 'calibre'
-cask 'musicbrainz-picard'
-
-
-
-cask 'skype'
-cask 'mamp'
-cask 'standard-notes'
-cask 'zeplin'
-
-
-# Audio
-cask 'mediahuman-audio-converter'
-
-
-# Quicklook
+cask 'garmin-express'
+# macOs quicklook plugins
 cask 'qlcolorcode'
 cask 'qlmarkdown'
 cask 'quicklook-json'
@@ -141,12 +117,26 @@ cask 'betterzip'
 cask 'qlimagesize'
 cask 'qlvideo'
 
-# Install Mac App Store apps
+# Security
+cask 'mullvadvpn'
+cask 'keepassxc'
+cask 'cryptomator'
+cask 'switchhosts'
+cask 'radio-silence'
+cask 'turtl'
+cask 'gpg-suite'
+cask 'malwarebytes'
+
+# Hardware
+cask 'logitech-options'
+cask 'ubiquiti-unifi-controller'
+
+# App Store
 mas 'ColorDrops', id: 1277028218
-mas 'LittleIpsum', id: 405772121
+mas 'Telephone', id: 406825478 # SIP app
 mas 'WhatsApp', id: 1147396723
-mas 'The Unarchiver', id: 425424353
-mas 'Telephone', id: 406825478
+mas 'LittleIpsum', id: 405772121 # GUI Lorem Ipsum generator
 mas 'Giphy Capture', id: 668208984
 mas 'Shazam', id: 897118787
-mas 'Irvue', id: 1039633667
+mas 'The Unarchiver', id: 425424353
+mas 'Irvue', id: 1039633667 # Wallpaper manager
