@@ -1,29 +1,25 @@
 #!/bin/sh
 
-#The installation/setup script is contained within a function
-macSetup() {
+# Installation script, contained within a function
+macInstallation() {
   # Ask for the administrator password upfront
   sudo -v
-  echo "\033[31m\n******************************************************************\033[0m"
+  # Keep-alive: update existing `sudo` time stamp until `install.sh` has finished
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
   # Set a custom computer name
-  read -p "Type a computer name: " #-n 1 -r
-  # echo "Choose a name for your computer:"; read computerName
+  echo "\033[31m\n******************************************************************\033[0m"
+  read -p "Choose a name for your computer: "
   echo "\033[31m******************************************************************\033[0m"
   sudo scutil --set ComputerName $REPLY
   sudo scutil --set LocalHostName $REPLY
   sudo scutil --set HostName $REPLY
-  #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb. server NetBIOSName -string $REPLY
 
-  # Set a custom message for the computer login window
-  read -p "Type a login message: " #-n 1 -r
+  # Set a custom login window message
+  read -p "Choose a login window message: "
   echo $REPLY
   sudo defaults write   /Library/Preferences/com.apple.loginwindow  LoginwindowText "$REPLY"
   echo "\033[31m******************************************************************\033[0m"
-
-  # Keep-alive: update existing `sudo` time stamp until `install.sh` has finished
-  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
   echo "\033[31m  Installation started. Please be patient \033[0m"
   echo "\033[31m******************************************************************\033[0m"
 
@@ -61,7 +57,7 @@ macSetup() {
   rm -rf $HOME/.vimrc
   # and symlink the .vimrc file from the .dotfiles...
   ln -s $HOME/.dotfiles/.vimrc $HOME/.vimrc
-  # then run the plugins installation
+  # and install VIM plugins
   vim +PlugInstall +qall
 
   # Remove .gitconfig from $HOME (if it exists)...
@@ -79,12 +75,17 @@ macSetup() {
   # and symlink the .gitignore_global file from the .dotfiles
   ln -s $HOME/.dotfiles/.gitignore_global $HOME/.gitignore_global
 
+  # Remove existing user fonts folder...
+  sudo rm -rf $HOME/Library/Fonts
+  # and Symlink Sync.com's fonts folder
+  ln -s $HOME/Sync/Fonts $HOME/Library/Fonts
+
   # Symlink the Mackup config file to the home directory
   ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
 
   # Install iterm2 Shell Integration
   curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
-  # Specify the iTerm2 preferences directory
+  # Set iTerm2 preferences directory
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfiles/iterm2"
   # Tell iTerm2 to use the custom preferences in the directory
   defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
@@ -93,16 +94,21 @@ macSetup() {
   # We will run this last because this will reload the shell
   source .macos
 
-  # Delete existing user fonts folder...
-  sudo rm -rf ~/Library/Fonts
-  # and Symlink Sync.com's fonts folder
-  ln -s ~/Sync/Fonts ~/Library/Fonts
-
   # Launch Paragon NTFS installation if the program is not installed yet
   if [ ! -e /Applications/NTFS\ for\ Mac.app ]
   then
     open -a /usr/local/Caskroom/paragon-ntfs/15/FSInstaller.app
   fi
+
+  # If there is an existing MPV config folder, delete it, else create it...
+  if [ -e ~/.config/mpv ]
+    then
+      sudo rm -rf ~/.config/mpv/mpv.conf
+    else
+      mkdir ~/.config/mpv
+  fi
+  # then symlink the MPV config file from the dotfiles
+  ln -s ~/.dotfiles/mpv/mpv.conf ~/.config/mpv/mpv.conf
 }
 
 # Ask for user confirmation before running the installation script
@@ -115,7 +121,7 @@ while true; do
    read -p "Proceed? (y/n): " -n 1 -r
     case "$REPLY" in
         [yY]*)
-            macSetup
+            macInstallation
             echo "\n\033[31m******************************************************************\033[0m"
             echo "\033[1m\033[31m* 👌 Installation complete.                                      *\033[0m"
             echo "\033[31m* Some of the changes require a logout/restart to take effect    *\033[0m"
@@ -129,6 +135,6 @@ while true; do
             ;;
          *)
             echo "\n\033[31mInvalid input!" >&2
-            echo "Answer typing \033[7my\033[27mes or \033[7mn\033[27mo \033[0m\n" >&2
+            echo "Answer by typing \033[7my\033[27mes or \033[7mn\033[27mo \033[0m\n" >&2
     esac
 done
