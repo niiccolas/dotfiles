@@ -32,6 +32,13 @@ Thumbs.db
 .idea/
 .vscode
 
+# Local Node.js modules
+node_modules/
+
+# Local .gitignore config
+.gitignore
+
 # Custom note files
 *.ignore
 *.ign
+test*
