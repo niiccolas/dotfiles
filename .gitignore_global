@@ -38,7 +38,8 @@ node_modules/
 # Local .gitignore config
 .gitignore
 
-# Custom note files
+# Custom ignore files
 *.ignore
 *.ign
-test*
+ignore_*
+ign_*
