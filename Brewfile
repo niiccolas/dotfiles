@@ -61,6 +61,7 @@ cask 'shuttle'
 cask 'slack'
 cask 'zeplin'
 cask 'skype'
+cask 'gitter'
 
 # Internet
 cask 'google-chrome'
