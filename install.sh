@@ -90,6 +90,15 @@ macInstallation() {
   # Tell iTerm2 to use the custom preferences in the directory
   defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
+  # Instal Ruby version 2.5.1...
+  rbenv install 2.5.1
+  # set version 2.5.1 to be our global default
+  rbenv global 2.5.1
+  # rehash to update the environment
+  rbenv rehash
+  # and install gems: Bundler, Pry, Byebug
+  gem install bundler pry byebug
+
   # Set macOS preferences
   # We will run this last because this will reload the shell
   source .macos
