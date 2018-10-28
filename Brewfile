@@ -26,6 +26,7 @@ brew 'translate-shell'
 brew 'fortune'
 
 # Dev
+brew 'rbenv'
 brew 'php'
 brew 'mysql'
 brew 'node'
