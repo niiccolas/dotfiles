@@ -96,8 +96,8 @@ macInstallation() {
   rbenv global 2.5.1
   # rehash to update the environment
   rbenv rehash
-  # and install gems: Bundler, Pry, Byebug
-  gem install bundler pry byebug
+  # and install gems: Bundler, Pry, Byebug, Solargraph (VScode Ruby intellisense & code completion)
+  gem install bundler pry byebug solargraph
 
   # Set macOS preferences
   # We will run this last because this will reload the shell
