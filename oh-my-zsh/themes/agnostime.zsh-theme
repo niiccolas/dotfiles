@@ -234,5 +234,6 @@ build_prompt() {
 #}
 #RPROMPT='$(right_prompt)'
 
-PROMPT='%{%f%b%k%}$(build_prompt) '
-RPROMPT='%* - %D{%f/%m/%y}'
+PROMPT='%{%f%b%k%}$(build_prompt) ' # Left Prompt
+RPROMPT='%*' # Right Prompt, time
+# RPROMPT='%* - %D{%f/%m/%y}' # Right Prompt, time & day

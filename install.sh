@@ -90,6 +90,10 @@ macInstallation() {
   # Tell iTerm2 to use the custom preferences in the directory
   defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
+  # Set-up custom oh-my-zsh AGNOSTIME theme
+  sudo rm -rf $HOME/.oh-my-zsh/themes/agnostime.zsh-theme
+  ln -s $HOME/.dotfiles/oh-my-zsh/themes/agnostime.zsh-theme $HOME/.oh-my-zsh/themes/agnostime.zsh-theme
+
   # Instal Ruby version 2.5.1...
   rbenv install 2.5.1
   # set version 2.5.1 to be our global default
