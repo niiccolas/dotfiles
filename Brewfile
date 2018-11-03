@@ -115,7 +115,6 @@ cask 'qlmarkdown'
 cask 'quicklook-json'
 cask 'quicklook-csv'
 cask 'qlstephen'
-cask 'betterzip'
 cask 'qlimagesize'
 cask 'qlvideo'
 
