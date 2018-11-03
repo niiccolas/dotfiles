@@ -108,5 +108,6 @@ if [ -f $DOTFILES/aliases.zsh ]; then
   . $DOTFILES/aliases.zsh
 fi
 
-# Print out a random short (-s) epigram as the shell starts
-echo "\e[0;35m$(fortune -s)\e[0m\n"
+# Shell start commands
+cal; # Highlight current day of current month
+echo "\e[0;35m$(fortune -s)\e[0m\n" # Random short (-s) epigram
