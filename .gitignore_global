@@ -43,3 +43,4 @@ node_modules/
 *.ign
 ignore_*
 ign_*
+sandbox*
