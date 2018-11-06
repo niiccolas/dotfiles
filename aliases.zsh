@@ -10,6 +10,7 @@ alias history="history -i"
 alias find="find ~/ -name"
 alias s="subl"
 alias t="trash"
+alias rm="trash -v"
 alias o="open"
 alias path='echo $PATH | tr -s ":" "\n"' # Pretty print $
 
