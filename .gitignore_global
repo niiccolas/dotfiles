@@ -41,6 +41,10 @@ node_modules/
 # Custom ignore files
 *.ignore
 *.ign
+*.tmp
 ignore_*
+ignore-*
 ign_*
+ign-*
+tmp-*
 sandbox*
