@@ -44872,13 +44872,13 @@
 	<key>DeleteProfile_selection</key>
 	<integer>0</integer>
 	<key>DimBackgroundWindows</key>
-	<false/>
+	<true/>
 	<key>DimInactiveSplitPanes</key>
 	<true/>
 	<key>DimOnlyText</key>
-	<true/>
-	<key>DisableFullscreenTransparency</key>
 	<false/>
+	<key>DisableFullscreenTransparency</key>
+	<true/>
 	<key>EnableProxyIcon</key>
 	<true/>
 	<key>GlobalKeyMap</key>
@@ -45078,17 +45078,19 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>-1033 393 620 392 -1920 -109 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>230 367 958 470 0 0 1440 877 </string>
+	<string>574 264 796 486 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 275 890 602 0 0 1440 877 </string>
+	<string>0 0 1440 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>-958 -109 956 1057 -1920 -109 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>-1680 144 890 602 -1920 -109 1920 1057 </string>
+	<string>550 275 890 602 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>176 70 810 527 0 0 1440 877 </string>
+	<string>720 0 720 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>259 171 810 527 0 0 1440 877 </string>
+	<string>0 0 1440 877 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 5</key>
+	<string>299 201 892 603 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -45914,7 +45916,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-11-04T11:36:01Z</date>
+	<date>2018-11-06T13:57:07Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -45925,8 +45927,10 @@
 	<true/>
 	<key>ShowPaneTitles</key>
 	<true/>
+	<key>SmartPlacement</key>
+	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.59999999999999998</real>
+	<real>0.16500400641025642</real>
 	<key>StretchTabsToFillBar</key>
 	<true/>
 	<key>SwitchPaneModifier</key>
