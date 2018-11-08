@@ -35,12 +35,24 @@ alias bri="brew install"
 alias bci="brew cask install"
 
 # Functions
+
 # Weather forecast for the city passed as argument. Default is Paris.
 # https://github.com/chubin/wttr.in.
 wttr() { curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Paris}?2" }
+
 # VScode the argument. Default is the current folder
 c() { code ${1:-.} }
+
 # Z plugin and VScode the argument. Default is the current folder
 zc() { z ${1:-.}; c }
+
 # Lists the 10 most used terminal commands
 stats() { fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a; }' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10 }
+
+# bxr runs bundle exec rspec RSPEC Ruby test cases!
+# takes an optional argument, useful when testing a specific spec file
+bxr() {
+  [[ $# -eq 0 ]] && bundle exec rspec ||
+  [[ $1 != *.rb ]] && printf "bxr [optional/path/to/specific_spec_file.rb]\n" ||
+  bundle exec rspec ${1:-}
+}
