@@ -49,10 +49,14 @@ zc() { z ${1:-.}; c }
 # Lists the 10 most used terminal commands
 stats() { fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a; }' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10 }
 
-# bxr runs bundle exec rspec RSPEC Ruby test cases!
-# takes an optional argument, useful when testing a specific spec file
+# bxr runs bundle exec rspec Ruby test cases!
+# takes an optional argument of a specific *.rb spec file
 bxr() {
-  [[ $# -eq 0 ]] && bundle exec rspec ||
-  [[ $1 != *.rb ]] && printf "bxr [optional/path/to/specific_spec_file.rb]\n" ||
-  bundle exec rspec ${1:-}
+  if [[ $# -eq 0 ]]; then
+    bundle exec rspec
+  elif [[ $1 != *.rb ]]; then
+    printf "Not a valid spec file: $1\n"
+  else
+    bundle exec rspec ${1:-}
+  fi
 }
