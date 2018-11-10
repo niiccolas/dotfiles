@@ -84,6 +84,7 @@ cask 'mediahuman-audio-converter'
 # macOs
 cask 'alfred'
 cask 'bartender'
+cask 'apptivate' # System-wide hotkeys
 cask 'appcleaner'
 cask 'etcher' # Flash IMG/ISO to USB
 cask 'cronnix' # Cron jobs manager
