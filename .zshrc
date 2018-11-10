@@ -20,7 +20,7 @@ ZSH_THEME="agnostime"
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
+# An empty array has no effect
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnostime" "fletcherm" "amuse" "re5et" "fino-time" "3den" "xiong-chiamiov-plus" "tonotdo" "wedisagree" "tjkirch" "fishy" "jonathan" "aussiegeek" "af-magic")
 
 # Uncomment the following line to use case-sensitive completion.
