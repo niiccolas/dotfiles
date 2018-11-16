@@ -32,7 +32,7 @@ alias gl="git log --oneline --decorate --color"
 # Homebrew
 alias brs="brew search"
 alias bri="brew install"
-alias bci="brew cask install"
+alias brci="brew cask install"
 
 # Functions
 
