@@ -35,6 +35,9 @@ Thumbs.db
 # Local Node.js modules
 node_modules/
 
+# Ruby files
+.byebug_history
+
 # Local .gitignore config
 .gitignore
 
