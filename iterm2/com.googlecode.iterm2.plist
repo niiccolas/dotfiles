@@ -45138,7 +45138,7 @@
 		<key>0xf702-0x300000</key>
 		<dict>
 			<key>Action</key>
-			<integer>2</integer>
+			<integer>31</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -45152,7 +45152,7 @@
 		<key>0xf703-0x300000</key>
 		<dict>
 			<key>Action</key>
-			<integer>0</integer>
+			<integer>30</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -45194,7 +45194,7 @@
 	<key>HideTabCloseButton</key>
 	<false/>
 	<key>Hotkey</key>
-	<true/>
+	<false/>
 	<key>HotkeyChar</key>
 	<integer>105</integer>
 	<key>HotkeyCode</key>
@@ -45288,13 +45288,13 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>-1033 393 620 392 -1920 -109 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-1529 423 958 470 -1920 -109 1920 1057 </string>
+	<string>482 407 958 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-1920 -109 1920 1057 -1920 -109 1920 1057 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 0 1440 877 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>-1920 396 810 552 -1920 -109 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>2 10 715 867 0 0 1440 877 </string>
+	<string>0 0 1440 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>720 0 720 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
@@ -46038,7 +46038,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-11-14T15:32:54Z</date>
+	<date>2018-12-13T09:51:47Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -46070,7 +46070,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.5</string>
+	<string>3.2.6</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
