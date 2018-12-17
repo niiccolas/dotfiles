@@ -109,7 +109,7 @@ if [ -f $DOTFILES/aliases.zsh ]; then
 fi
 
 # Shell start commands
-cal; # Highlight current day of current month
+#cal; # Highlight current day of current month
 echo "\e[0;35m$(fortune -s)\e[0m\n" # Random short (-s) epigram
 
 # Node Version Manager
