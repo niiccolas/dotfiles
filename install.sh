@@ -94,7 +94,7 @@ macInstallation() {
   sudo rm -rf $HOME/.oh-my-zsh/themes/agnostime.zsh-theme
   ln -s $HOME/.dotfiles/oh-my-zsh/themes/agnostime.zsh-theme $HOME/.oh-my-zsh/themes/agnostime.zsh-theme
 
-  # Instal Ruby version 2.5.1...
+  # Install Ruby version 2.5.1...
   rbenv install 2.5.1
   # set version 2.5.1 to be our global default
   rbenv global 2.5.1
@@ -102,6 +102,9 @@ macInstallation() {
   rbenv rehash
   # and install gems: Bundler, Pry, Byebug, Solargraph (VScode Ruby intellisense & code completion)
   gem install bundler pry byebug solargraph
+
+  # Install Node Version Manager (https://github.com/creationix/nvm)
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
   # Set macOS preferences
   # We will run this last because this will reload the shell

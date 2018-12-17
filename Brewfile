@@ -24,6 +24,7 @@ brew 'zsh-autosuggestions'
 brew 'zsh-completions'
 brew 'translate-shell'
 brew 'fortune'
+brew 'lolcat'
 
 # Dev
 brew 'rbenv'
@@ -31,7 +32,7 @@ brew 'php'
 brew 'mysql'
 brew 'sqlite'
 cask 'postgres'
-brew 'node'
+# brew 'node' # Disable in favor of nvm
 brew 'vim'
 cask 'java'
 cask 'mysqlworkbench'
@@ -57,6 +58,7 @@ cask 'cool-retro-term'
 cask 'imageoptim' # Image optimization
 brew 'imageoptim-cli'
 brew 'mackup'
+brew 'asciinema'
 
 # Collaboration
 cask 'quip'
@@ -96,7 +98,6 @@ cask 'caffeine'
 cask 'rocket' # Emojis galore 🎷
 cask 'numi'
 cask 'aerial' # Apple TV Aerial Views Screen Saver
-cask 'meteorologist'
 cask 'michaelvillar-timer'
 cask 'freefilesync'
 cask 'daisydisk' # Disk usage stats
