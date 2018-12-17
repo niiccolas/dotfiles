@@ -13,6 +13,7 @@ alias t="trash"
 alias rm="trash -v"
 alias o="open"
 alias path='echo $PATH | tr -s ":" "\n"' # Pretty print $
+alias p="pry"
 alias xrc="exercism"
 
 # Directories
@@ -36,7 +37,7 @@ alias bri="brew install"
 alias brci="brew cask install"
 
 # Crontab
-alias crontab="export VISUAL=vim; crontab"
+alias crontab="export EDITOR=vim; crontab"
 
 # Functions
 
