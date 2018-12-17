@@ -189,9 +189,9 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 ###############################################################################
 
 # Set Quick Look font
-defaults write org.n8gray.QLColorCode font "Fira Code"
+defaults write org.n8gray.QLColorCode font "SF Mono"
 # Set Quick Look font size
-defaults write org.n8gray.QLColorCode fontSizePoints 11
+defaults write org.n8gray.QLColorCode fontSizePoints 12
 # Set Quick Look theme to Solarized Dark
 defaults write org.n8gray.QLColorCode hlTheme solarized-dark
 
