@@ -65,3 +65,12 @@ bxr() {
     bundle exec rspec ${1:-}
   fi
 }
+
+# Launch a Ruby rdebug-ide Fast Debugger server
+rdb() {
+  if [[ $# -eq 0 ]]; then
+    printf "Pass as argument the path of the file to debug\n"
+  else
+    rdebug-ide --host 0.0.0.0 --port 1234 --dispatcher-port 26162 $1
+  fi
+}
