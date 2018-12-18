@@ -61,7 +61,7 @@ brew 'mackup'
 brew 'asciinema'
 
 # Collaboration
-cask 'quip'
+# cask 'quip'
 cask 'shuttle'
 cask 'slack'
 cask 'zeplin'
