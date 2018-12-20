@@ -48,8 +48,11 @@ wttr() { curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Paris}?2" }
 # VScode the argument. Default is the current folder
 c() { code ${1:-.} }
 
-# Z plugin and VScode the argument. Default is the current folder
+# Run Z plugin and VScode on the argument (current folder by default)
 zc() { z ${1:-.}; c }
+
+# Run Z plugin and Sublime on the argument (current folder by default)
+zs() { z ${1:-.}; s }
 
 # Lists the 10 most used terminal commands
 stats() { fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a; }' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10 }
