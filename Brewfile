@@ -59,6 +59,7 @@ cask 'imageoptim' # Image optimization
 brew 'imageoptim-cli'
 brew 'mackup'
 brew 'asciinema'
+cask 'devdocs' # self-hosted app container for devdocs.io
 
 # Collaboration
 # cask 'quip'
