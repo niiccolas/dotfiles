@@ -115,6 +115,8 @@ cask 'libreoffice'
 cask 'libreoffice-language-pack'
 cask 'calibre'
 cask 'garmin-express'
+cask 'go2shell'
+
 # macOs quicklook plugins
 cask 'qlcolorcode'
 cask 'qlmarkdown'
