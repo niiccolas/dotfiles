@@ -60,6 +60,7 @@ stats() { fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " 
 # bxr runs bundle exec rspec Ruby test cases!
 # takes an optional argument of a specific *.rb spec file
 bxr() {
+  clear
   if [[ $# -eq 0 ]]; then
     bundle exec rspec
   elif [[ $1 != *.rb ]]; then
