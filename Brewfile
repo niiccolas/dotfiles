@@ -144,7 +144,7 @@ cask 'ubiquiti-unifi-controller'
 mas 'ColorDrops', id: 1277028218
 mas 'Telephone', id: 406825478 # SIP app
 mas 'WhatsApp', id: 1147396723
-mas 'LittleIpsum', id: 405772121 # GUI Lorem Ipsum generator
+mas 'Loremify', id: 1028877632 # GUI Lorem Ipsum generator
 mas 'Giphy Capture', id: 668208984
 mas 'Shazam', id: 897118787
 mas 'The Unarchiver', id: 425424353
