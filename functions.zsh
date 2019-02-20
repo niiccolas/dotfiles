@@ -43,10 +43,9 @@ rdb() {
 mkspc() {
   if [[ $# -eq 0 ]]; then
     printf "usage:\n\tmkspec filename1 [filename2 ...]\n"
-  elif [[ $1 -eq '-h' ]]; then
+  elif [[ $1 = "-h" ]]; then
     printf "MaKeSPeC 💎 1.0\n"
     printf "From given argument(s), creates Ruby and RSpec file(s) in ./lib and ./spec\n"
-
   else
     while [ $# -ne 0 ]
       do
