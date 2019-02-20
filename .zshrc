@@ -103,9 +103,16 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # Include Z
 . /usr/local/etc/profile.d/z.sh
 
-# If the dotfiles folder has an alias file, then use the . builtin (aka source) to import it
+# Load the Aliases files if the dotfiles folder has one
+# then use the . builtin (aka source) to import it
 if [ -f $DOTFILES/aliases.zsh ]; then
   . $DOTFILES/aliases.zsh
+fi
+
+# Load the Functions files if the dotfiles folder has one
+# then use the . builtin (aka source) to import it
+if [ -f $DOTFILES/functions.zsh ]; then
+  . $DOTFILES/functions.zsh
 fi
 
 # Shell start commands
@@ -116,3 +123,9 @@ echo "\e[0;35m$(fortune -s)\e[0m\n" # Random short (-s) epigram
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# HSTR configuration - add this to ~/.bashrc
+alias hh=hstr                    # hh to be alias for hstr
+export HISTFILE=~/.zsh_history  # ensure history file visibility
+export HSTR_CONFIG=hicolor        # get more colors
+bindkey -s "\C-r" "\eqhstr\n"     # bind hstr to Ctrl-r (for Vi mode check doc)
+
