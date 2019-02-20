@@ -37,3 +37,21 @@ rdb() {
     rdebug-ide --host 0.0.0.0 --port 1234 --dispatcher-port 26162 $1
   fi
 }
+
+# MaKeSPeC. Creates a Ruby file and its companion RSpec file
+# in ./lib & ./spec respectively
+mkspc() {
+  if [[ $# -eq 0 ]]; then
+    printf "usage:\n\tmkspec filename1 [filename2 ...]\n"
+  elif [[ $1 -eq '-h' ]]; then
+    printf "MaKeSPeC 💎 1.0\n"
+    printf "From given argument(s), creates Ruby and RSpec file(s) in ./lib and ./spec\n"
+
+  else
+    while [ $# -ne 0 ]
+      do
+        touch lib/$1.rb spec/$1_spec.rb
+        shift
+    done
+  fi
+}
