@@ -50,8 +50,9 @@ mkspec() {
     while [ $# -ne 0 ]
       do
       echo "source \"https://rubygems.org\"\n\ngem 'rspec'" > Gemfile
-      mkdir lib spec
-      touch lib/$1.rb spec/$1_spec.rb
+      mkdir lib spec 2> /dev/null
+      touch lib/$1.rb
+      echo "require '$1'" > spec/$1_spec.rb
       shift
     done
   fi
