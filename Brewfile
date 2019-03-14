@@ -69,6 +69,7 @@ cask 'zeplin'
 cask 'skype'
 cask 'gitter'
 cask 'franz'
+cask 'zoom'
 
 # Internet
 cask 'google-chrome'
@@ -97,7 +98,7 @@ cask 'cronnix' # Cron jobs manager
 cask 'desktoputility' # Show/hide desktop, library, dotfiles
 cask 'spectacle' # Window manager
 cask 'caffeine'
-cask 'rocket' # Emojis galore 🎷
+# cask 'rocket' # Emojis galore 🎷 >> redundant with Apple's emoji tray
 cask 'numi'
 cask 'aerial' # Apple TV Aerial Views Screen Saver
 cask 'michaelvillar-timer'
