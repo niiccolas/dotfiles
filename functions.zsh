@@ -40,7 +40,7 @@ rdb() {
 
 # MaKeSPeC. Creates a Ruby file and its companion RSpec file
 # in ./lib & ./spec respectively
-mkspc() {
+mkspec() {
   if [[ $# -eq 0 ]]; then
     printf "usage:\n\tmkspec filename1 [filename2 ...]\n"
   elif [[ $1 = "-h" ]]; then
