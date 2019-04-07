@@ -7,6 +7,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Enable rbenv commands
 export PATH=$HOME/.rbenv/bin:$PATH
 
+# Enable Postgres.app cli
+export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+
 # Initialize rbenv for every new console window
 eval "$(rbenv init -)"
 
