@@ -1,13 +1,13 @@
 #!/bin/sh
 
-# Installation script, contained within a function
 macInstallation() {
   # Ask for the administrator password upfront
   sudo -v
   # Keep-alive: update existing `sudo` time stamp until `install.sh` has finished
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-  # Set a custom computer name
+  ########################################
+  # SET COMPUTER NAME & LOGIN MSG
   echo "\033[31m\n******************************************************************\033[0m"
   read -p "Choose a name for your computer: "
   echo "\033[31m******************************************************************\033[0m"
@@ -15,7 +15,6 @@ macInstallation() {
   sudo scutil --set LocalHostName $REPLY
   sudo scutil --set HostName $REPLY
 
-  # Set a custom login window message
   read -p "Choose a login window message: "
   echo $REPLY
   sudo defaults write   /Library/Preferences/com.apple.loginwindow  LoginwindowText "$REPLY"
@@ -23,67 +22,57 @@ macInstallation() {
   echo "\033[31m  Installation started. Please be patient \033[0m"
   echo "\033[31m******************************************************************\033[0m"
 
-  # Check for Homebrew and install if we don't have it
-  if test ! $(which brew); then
+  ########################################
+  # HOMEBREW
+  if test ! $(which brew); then # Install if absent
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
-
-  # Update Homebrew recipes
-  brew update
-
-  # Install all our dependencies with bundle (See Brewfile)
-  brew tap homebrew/bundle
+  brew update # Update Homebrew recipes
+  brew tap homebrew/bundle # Install dependencies (See Brewfile)
   brew bundle
+  brew cask upgrade # Upgrade installed Brew Casks
+  chsh -s $(which zsh) # Make ZSH the default shell environment
+  npm install --global yarn # Install global NPM packages
 
-  # Upgrade installed Brew Casks
-  brew cask upgrade
-
-  # Make ZSH the default shell environment
-  chsh -s $(which zsh)
-
-  # Install global NPM packages
-  npm install --global yarn
-
-  # Create a Sites directory
-  # A default directory for macOS user accounts that doesn't come pre-installed
+  ########################################
+  # APACHE SITES DIRECTORY
   mkdir $HOME/Sites
 
-  # Remove .zshrc from $HOME (if it exists)...
+  ########################################
+  # DOTFILES
+  # Remove any dotfile from user's $HOME
+  # Symlink repo's dotfile to user's $HOME
+
+  # Oh-My-Zsh
   rm -rf $HOME/.zshrc
-  # and symlink the .zshrc file from the .dotfiles...
   ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
-  # Remove .vimrc from $HOME (if it exists)...
+  # Vim
   rm -rf $HOME/.vimrc
-  # and symlink the .vimrc file from the .dotfiles...
   ln -s $HOME/.dotfiles/.vimrc $HOME/.vimrc
-  # and install VIM plugins
   vim +PlugInstall +qall
 
-  # Remove .gitconfig from $HOME (if it exists)...
+  # Git
   rm -rf $HOME/.gitconfig
-  # and symlink the .gitconfig file from the .dotfiles
   ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
-
-  # Remove .gitmessage.txt from $HOME (if it exists)...
   rm -rf $HOME/.gitmessage.txt
-  # and symlink the .gitmessage.txt file from the .dotfiles
   ln -s $HOME/.dotfiles/.gitmessage.txt $HOME/.gitmessage.txt
-
-  # Remove .gitignore_global from $HOME (if it exists)...
   rm -rf $HOME/.gitignore_global
-  # and symlink the .gitignore_global file from the .dotfiles
   ln -s $HOME/.dotfiles/.gitignore_global $HOME/.gitignore_global
 
-  # Remove existing user fonts folder...
+  # User Fonts
   sudo rm -rf $HOME/Library/Fonts
-  # and Symlink Sync.com's fonts folder
   ln -s $HOME/Sync/Fonts $HOME/Library/Fonts
 
-  # Symlink the Mackup config file to the home directory
+  # Mackup
   ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
 
-  # Install iterm2 Shell Integration
+  # SQLite3
+  rm -rf $HOME/.sqliterc
+  ln -s $HOME/.dotfiles/.sqliterc $HOME/.sqliterc
+
+  ########################################
+  # iTerm2 Shell Integration
   curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
   # Set iTerm2 preferences directory
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfiles/iterm2"
@@ -94,40 +83,40 @@ macInstallation() {
   sudo rm -rf $HOME/.oh-my-zsh/themes/agnostime.zsh-theme
   ln -s $HOME/.dotfiles/oh-my-zsh/themes/agnostime.zsh-theme $HOME/.oh-my-zsh/themes/agnostime.zsh-theme
 
-  # Install Ruby version 2.5.1...
+  ########################################
+  # RUBY
   rbenv install 2.5.1
-  # set version 2.5.1 to be our global default
-  rbenv global 2.5.1
-  # rehash to update the environment
-  rbenv rehash
-  # and install gems: Bundler, Pry, Byebug, Solargraph (VScode Ruby intellisense & code completion)
-  gem install bundler pry byebug solargraph
+  rbenv global 2.5.1 # set 2.5.1 to global default
+  rbenv rehash # rehash to update environment
+  gem install bundler pry byebug solargraph # Gems
 
-  # Install Node Version Manager (https://github.com/creationix/nvm)
+  ########################################
+  # NODE VERSION MANAGER
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
-  # Set macOS preferences
+  ########################################
+  # SET MACOS PREFERENCES
   # We will run this last because this will reload the shell
   source .macos
 
-  # Launch Paragon NTFS installation if the program is not installed yet
+  ########################################
+  # PARAGON NTFS
   if [ ! -e /Applications/NTFS\ for\ Mac.app ]
   then
     open -a /usr/local/Caskroom/paragon-ntfs/15/FSInstaller.app
   fi
 
-  # If there is an existing MPV config folder, delete it, else create it...
+  ########################################
+  # MPV CONFIG FOLDER
   if [ -e ~/.config/mpv ]
     then
       sudo rm -rf ~/.config/mpv/mpv.conf
     else
       mkdir ~/.config/mpv
   fi
-  # then symlink the MPV config file from the dotfiles
   ln -s ~/.dotfiles/mpv/mpv.conf ~/.config/mpv/mpv.conf
 }
 
-# Ask for user confirmation before running the installation script
 echo "\n\033[31m******************************************************************\033[0m"
 echo "\033[1m\033[31m* 🤖 Setting up your Mac!                                        *\033[0m"
 echo "\033[31m* This script will install apps & change your computer settings  *\033[0m"
