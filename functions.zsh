@@ -17,15 +17,15 @@ zs() { z ${1:-.}; s }
 stats() { fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a; }' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10 }
 
 # bxr runs bundle exec rspec Ruby test cases!
-# takes an optional argument of a specific *.rb spec file
+# takes an optional argument for running specific spec files
 bxr() {
   clear
   if [[ $# -eq 0 ]]; then
-    bundle exec rspec
+    bundle exec rspec -f documentation
   elif [[ $1 != *.rb ]]; then
     printf "Not a valid spec file: $1\n"
   else
-    bundle exec rspec ${1:-}
+    bundle exec rspec -f documentation ${1:-}
   fi
 }
 
