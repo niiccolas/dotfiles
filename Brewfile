@@ -31,6 +31,7 @@ brew 'rbenv'
 brew 'php'
 brew 'mysql'
 brew 'sqlite'
+brew 'db-browser-for-sqlite'
 cask 'postgres'
 # brew 'node' # Disable in favor of nvm
 brew 'vim'
