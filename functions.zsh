@@ -13,8 +13,14 @@ zc() { z ${1:-.}; c }
 # Run Z plugin and Sublime on the argument (current folder by default)
 zs() { z ${1:-.}; s }
 
-# Lists the 10 most used terminal commands
-stats() { fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a; }' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10 }
+# Lists the 15 most used terminal commands
+stats() {
+  fc -l 1 |
+  awk '{CMD[$2]++;count++;} END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a; }' |
+  grep -v "./" |
+  column -c3 -s " " -t |
+  sort -nr | nl | head -n15
+}
 
 # bxr runs bundle exec rspec Ruby test cases!
 # takes an optional argument for running specific spec files
