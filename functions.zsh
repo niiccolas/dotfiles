@@ -59,6 +59,10 @@ mkspec() {
 }
 
 # Preview MARKDOWN.md files in the terminal
-catmd() {
-  pandoc $1 | lynx -stdin
+catm() {
+  if [[ $# -eq 0 ]]; then
+    printf "Example usage:\n  catm [filename.md]\n"
+  else
+    pandoc $1 | lynx -stdin
+  fi
 }
