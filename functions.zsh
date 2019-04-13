@@ -57,3 +57,8 @@ mkspec() {
     done
   fi
 }
+
+# Preview MARKDOWN.md files in the terminal
+catmd() {
+  pandoc $1 | lynx -stdin
+}
