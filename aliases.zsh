@@ -33,7 +33,10 @@ alias gl="git log --oneline --decorate --color"
 # Homebrew
 alias brs="brew search"
 alias bri="brew install"
-alias brci="brew cask install"
+alias bci="brew cask install"
+alias brup="brew update"
+alias brout="brew outdated"
+alias brug="brew upgrade"
 
 # Crontab
 alias crontab="export EDITOR=vim; crontab"
