@@ -25,6 +25,8 @@ brew 'zsh-completions'
 brew 'translate-shell'
 brew 'fortune'
 brew 'lolcat'
+brew 'lynx'
+brew 'pandoc'
 
 # Dev
 brew 'rbenv'
@@ -33,7 +35,7 @@ brew 'mysql'
 brew 'sqlite'
 brew 'db-browser-for-sqlite'
 cask 'postgres'
-# brew 'node' # Disable in favor of nvm
+# brew 'node' # Disabled in favor of nvm
 brew 'vim'
 cask 'java'
 cask 'mysqlworkbench'
