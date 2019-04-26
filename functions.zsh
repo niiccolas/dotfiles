@@ -64,11 +64,21 @@ mkspec() {
   fi
 }
 
-# Preview MARKDOWN.md files in the terminal
-catm() {
+# View MARKDOWN.md files in the terminal
+catmd() {
   if [[ $# -eq 0 ]]; then
     printf "Example usage:\n  catm [filename.md]\n"
   else
     pandoc $1 | lynx -stdin
   fi
+}
+
+# Whole system File finder, case insensitive
+findf () {
+  find / -iname $1 -type f 2>/dev/null
+}
+
+# Whole system Directory finder, case insensitive
+findd () {
+  find / -iname $1 -type d 2>/dev/null
 }
