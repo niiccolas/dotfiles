@@ -31,12 +31,10 @@ alias gd="git diff"
 alias gl="git log --oneline --decorate --color"
 
 # Homebrew
-alias brs="brew search"
-alias bri="brew install"
-alias brci="brew cask install"
-alias brupd="brew update"
-alias brupg="brew upgrade"
-alias brout="brew outdated"
+alias bi="brew install"
+alias bci="brew cask install"
+alias bup="brew upgrade && brew cask upgrade"
+alias bout="printf \"\e[31m==> Updating Homebrew...\n\e[0m\" && brew update && printf \"\e[31m==> Outdated Formulas\n\e[0m\" && brew outdated && printf \"\e[31m==> Outdated Casks\n\e[0m\" && brew cask outdated"
 
 # Crontab
 alias crontab="export EDITOR=vim; crontab"
