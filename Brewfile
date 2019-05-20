@@ -35,6 +35,7 @@ brew 'mysql'
 brew 'sqlite'
 brew 'db-browser-for-sqlite'
 cask 'postgres'
+cask 'pgadmin4'
 # brew 'node' # Disabled in favor of nvm
 brew 'vim'
 cask 'java'
