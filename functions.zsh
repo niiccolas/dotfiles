@@ -97,7 +97,7 @@ webskel() {
   <link rel="stylesheet" href="./assets/css/main.css">
 
   <!-- JS files -->
-  <script src="./assets/js/main.js"></script>
+  <script defer src="./assets/js/main.js"></script>
 
   <title>Document</title>
 </head>
