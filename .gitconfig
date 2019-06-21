@@ -1,6 +1,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = /usr/local/bin/vim
+	autocrlf = input
 
 [user]
 	email = 40167702+niiccolas@users.noreply.github.com
