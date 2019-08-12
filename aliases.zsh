@@ -41,3 +41,6 @@ alias brci="brew cask install"
 
 # Crontab
 alias crontab="export EDITOR=vim; crontab"
+
+# Angular
+alias ngso="ng serve -o"
