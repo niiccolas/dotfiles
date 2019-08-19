@@ -64,6 +64,8 @@ brew 'imageoptim-cli'
 brew 'mackup'
 brew 'asciinema'
 cask 'devdocs' # self-hosted app container for devdocs.io
+## Dev - back-end
+brew 'gradle'
 
 # Collaboration
 # cask 'quip'
@@ -84,6 +86,7 @@ cask 'raindropio' # Bookmarks sync service
 cask 'dropbox'
 cask 'sync'
 cask 'qbittorrent'
+brew 'syncthing'
 
 # Video
 cask 'vlc'
