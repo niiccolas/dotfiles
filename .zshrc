@@ -5,13 +5,16 @@ export DOTFILES=$HOME/.dotfiles
 export ZSH=$HOME/.oh-my-zsh
 
 # Enable rbenv commands
-export PATH=$HOME/.rbenv/bin:$PATH
+# export PATH=$HOME/.rbenv/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+# Initialize rbenv for every new console window
+eval "$(rbenv init -)"
+
+# User Homebrew's Ruby (latest version)
+# export PATH="/usr/local/Cellar/ruby/2.6.3/bin:$PATH"
 
 # Enable Postgres.app cli
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
-
-# Initialize rbenv for every new console window
-eval "$(rbenv init -)"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -24,7 +27,7 @@ ZSH_THEME="robbyrussell"
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
 # An empty array has no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnostime" "fletcherm" "amuse" "re5et" "fino-time" "3den" "xiong-chiamiov-plus" "tonotdo" "wedisagree" "tjkirch" "fishy" "jonathan" "aussiegeek" "af-magic")
+#ZSH_THEME_RANDOM_CANDIDATES=(robbyrussell, dieter, intheloop, FLETCHERM, fowler)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -62,20 +65,29 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="dd/mm/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$DOTFILES
+# ZSH_CUSTOM=$DOTFILES
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  git-extras
   zsh-syntax-highlighting
   zsh-autosuggestions
   zsh-completions
-  osx
   extract
+  osx
+  sudo # hit ESC twice to add `sudo`in front of current command
+
+    # git
+    # tab           open the current directory in a new tab
+    # pfd           return the path of the frontmost Finder window
+    # pfs           return the current Finder selection
+    # cdf           cd to the current Finder directory
+    # pushdf        pushd to the current Finder directory
+    # quick-look    quick Look a specified file
+    # man-preview   open a specified man page in Preview
+    # trash         move a specified file to the Trash
 )
 
 autoload -U compinit && compinit #reloading completion for zsh-completions plugin
@@ -84,7 +96,7 @@ autoload -U compinit && compinit #reloading completion for zsh-completions plugi
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-export LC_ALL=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_TIME=fr_FR.UTF-8
 
@@ -96,10 +108,10 @@ else
 fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -126,9 +138,12 @@ echo "\e[0;35m$(fortune -s)\e[0m\n" # Random short (-s) epigram
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# HSTR configuration - add this to ~/.bashrc
-alias hh=hstr                    # hh to be alias for hstr
-export HISTFILE=~/.zsh_history  # ensure history file visibility
-export HSTR_CONFIG=hicolor        # get more colors
-bindkey -s "\C-r" "\eqhstr\n"     # bind hstr to Ctrl-r (for Vi mode check doc)
 
+# HSTR configuration
+alias hh=hstr                   # hh to be alias for hstr
+export HISTFILE=~/.zsh_history  # ensure history file visibility
+export HSTR_CONFIG=hicolor      # get more colors
+bindkey -s "\C-r" "\eqhstr\n"   # bind hstr to Ctrl-r (for Vi mode check doc)
+
+# Path to JDK
+export JAVA_HOME=$(/usr/libexec/java_home)
