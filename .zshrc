@@ -5,12 +5,11 @@ export DOTFILES=$HOME/.dotfiles
 export ZSH=$HOME/.oh-my-zsh
 
 # Enable rbenv commands
-# export PATH=$HOME/.rbenv/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
-# Initialize rbenv for every new console window
+# Initialize rbenv
 eval "$(rbenv init -)"
 
-# User Homebrew's Ruby (latest version)
+# Use Homebrew's Ruby (latest version)
 # export PATH="/usr/local/Cellar/ruby/2.6.3/bin:$PATH"
 
 # Enable Postgres.app cli
@@ -27,7 +26,7 @@ ZSH_THEME="robbyrussell"
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
 # An empty array has no effect
-#ZSH_THEME_RANDOM_CANDIDATES=(robbyrussell, dieter, intheloop, FLETCHERM, fowler)
+# ZSH_THEME_RANDOM_CANDIDATES=("robbyrussell" "dieter" "intheloop" "FLETCHERM" "fowler")
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -75,19 +74,21 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   zsh-completions
-  extract
-  osx
-  sudo # hit ESC twice to add `sudo`in front of current command
-
-    # git
-    # tab           open the current directory in a new tab
-    # pfd           return the path of the frontmost Finder window
-    # pfs           return the current Finder selection
-    # cdf           cd to the current Finder directory
-    # pushdf        pushd to the current Finder directory
-    # quick-look    quick Look a specified file
-    # man-preview   open a specified man page in Preview
-    # trash         move a specified file to the Trash
+  extract # extracts archive file passed to it.
+  sudo    # hit ESC twice to add `sudo`in front of current command
+  osx     # control macOS from ZSH, commands below:
+          # pfd           return the path of the frontmost Finder window
+          # pfs           return the current Finder selection
+          # cdf           cd to the current Finder directory
+          # pushdf        pushd to the current Finder directory
+          # quick-look    quick Look a specified file
+          # man-preview   open a specified man page in Preview
+          # trash         move a specified file to the Trash
+          # showfiles 	  show hidden files
+          # hidefiles 	  hide the hidden files
+          # itunes 	      control iTunes. Use itunes -h for usage details
+          # spotify 	    control Spotify and search by artist, album, track…
+          # rmdsstore 	  remove .DS_Store files recursively in a directory
 )
 
 autoload -U compinit && compinit #reloading completion for zsh-completions plugin
@@ -118,20 +119,19 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # Include Z
 . /usr/local/etc/profile.d/z.sh
 
-# Load the Aliases files if the dotfiles folder has one
-# then use the . builtin (aka source) to import it
+# Load zsh Aliases file if included in dotfiles folder
+# using the . builtin (aka source)
 if [ -f $DOTFILES/aliases.zsh ]; then
   . $DOTFILES/aliases.zsh
 fi
 
-# Load the Functions files if the dotfiles folder has one
-# then use the . builtin (aka source) to import it
+# Load zsh Functions file if included in dotfiles folder
+# using the . builtin (aka source)
 if [ -f $DOTFILES/functions.zsh ]; then
   . $DOTFILES/functions.zsh
 fi
 
 # Shell start commands
-#cal; # Highlight current day of current month
 echo "\e[0;35m$(fortune -s)\e[0m\n" # Random short (-s) epigram
 
 # Node Version Manager
