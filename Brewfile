@@ -64,6 +64,7 @@ brew 'imageoptim-cli'
 brew 'mackup'
 brew 'asciinema'
 cask 'devdocs' # self-hosted app container for devdocs.io
+cask 'fontforge'
 ## Dev - back-end
 brew 'gradle'
 
@@ -147,6 +148,7 @@ cask 'malwarebytes'
 # Hardware
 cask 'logitech-options'
 cask 'ubiquiti-unifi-controller'
+cask 'wakeonlan'
 
 # App Store
 mas 'ColorDrops', id: 1277028218
