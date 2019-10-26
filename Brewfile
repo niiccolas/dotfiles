@@ -87,6 +87,7 @@ cask 'raindropio' # Bookmarks sync service
 cask 'dropbox'
 cask 'sync'
 cask 'qbittorrent'
+cask 'nextcloud'
 brew 'syncthing'
 
 # Video
@@ -159,3 +160,4 @@ mas 'Giphy Capture', id: 668208984
 mas 'Shazam', id: 897118787
 mas 'The Unarchiver', id: 425424353
 mas 'Irvue', id: 1039633667 # Wallpaper manager
+mas 'iPic', id: 1101244278 # Image uploader
