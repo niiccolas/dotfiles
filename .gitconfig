@@ -1,14 +1,28 @@
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = /usr/local/bin/vim
-	autocrlf = input
+  excludesfile = ~/.gitignore_global
+  editor = /usr/local/bin/vim
+  autocrlf = input
 
 [user]
-	email = 40167702+niiccolas@users.noreply.github.com
-	name = niiccolas
+  email = 40167702+niiccolas@users.noreply.github.com
+  name = niiccolas
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [commit]
-	template = ~/.gitmessage.txt
+  template = ~/.gitmessage.txt
 [color]
   ui = auto
+
+# VSCODE AS GIT DIFF/MERGE TOOL
+[merge]
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+
+# CONDITIONAL CONFIG FILE FOR PROFESSIONAL PROJECTS
+[includeIf "gitdir:~/Sync/Code/pro/"]
+  path = ~/.gitconfig-pro
