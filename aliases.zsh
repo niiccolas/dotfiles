@@ -13,7 +13,8 @@ alias rm="trash -v"
 alias o="open"
 alias path='echo $PATH | tr -s ":" "\n"' # Pretty print $
 alias p="pry"
-alias xrc="exercism"
+alias xrcm="exercism"
+alias myip="curl http://ipecho.net/plain; echo"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
@@ -22,13 +23,17 @@ alias sites="cd $HOME/Sites"
 
 # Git
 alias gca="git commit -a"
-alias gcm="git commit -m"
+alias gcom="git commit -m"
 alias gcam="git commit -am"
 alias gs="git status"
-alias gch="git checkout"
-alias gchm="git checkout master"
+alias gp="git pull"
+alias gc="git checkout"
+alias gcm="git checkout master"
+alias gcd="git checkout develop"
+alias gc-="git checkout -"
 alias gd="git diff"
-alias gl="git log --oneline --decorate --color"
+alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
+alias preprebase="git checkout develop && git pull && git checkout - && git rebase -i develop"
 
 # Homebrew
 alias bri="brew install"
