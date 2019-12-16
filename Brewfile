@@ -65,6 +65,7 @@ brew 'mackup'
 brew 'asciinema'
 cask 'devdocs' # self-hosted app container for devdocs.io
 cask 'fontforge'
+cask 'sourcetree'
 ## Dev - back-end
 brew 'gradle'
 
@@ -74,7 +75,6 @@ cask 'shuttle'
 cask 'slack'
 cask 'zeplin'
 cask 'skype'
-cask 'gitter'
 cask 'franz'
 cask 'zoom'
 
