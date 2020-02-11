@@ -1,6 +1,6 @@
 [core]
-	excludesfile = /Users/niic/.gitignore_global
-  editor = /usr/local/bin/vim
+  excludesfile = /Users/niic/.gitignore_global
+  editor = /usr/local/bin/code --wait
   autocrlf = input
 
 [user]
@@ -24,7 +24,7 @@
   cmd = code --wait --diff $LOCAL $REMOTE
 
 # CONDITIONAL CONFIG FILE FOR PROFESSIONAL PROJECTS
-[includeIf "gitdir:~/Sync/Code/pro/"]
+[includeIf "gitdir:~/Sync/CodePro/"]
   path = ~/.gitconfig-pro
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
