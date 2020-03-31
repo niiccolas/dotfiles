@@ -49,3 +49,6 @@ ign_*
 ign-*
 tmp-*
 sandbox*
+
+# dotenv API keys
+.env

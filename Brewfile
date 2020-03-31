@@ -135,6 +135,7 @@ cask 'quicklook-csv'
 cask 'qlstephen'
 cask 'qlimagesize'
 cask 'qlvideo'
+cask 'WebPQuickLook'
 
 # Security
 cask 'mullvadvpn'
