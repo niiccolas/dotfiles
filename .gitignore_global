@@ -50,5 +50,5 @@ ign-*
 tmp-*
 sandbox*
 
-# dotenv API keys
+# dotenv hidden keys
 .env

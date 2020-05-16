@@ -93,7 +93,7 @@ prompt_git() {
     PL_BRANCH_CHAR=$'\ue0a0'         # 
   }
   local ref dirty mode repo_path
-
+  
   if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
     repo_path=$(git rev-parse --git-dir 2>/dev/null)
     dirty=$(parse_git_dirty)
@@ -103,18 +103,18 @@ prompt_git() {
     else
       prompt_segment green black
     fi
-
+    
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
       mode=" <B>"
-    elif [[ -e "${repo_path}/MERGE_HEAD" ]]; then
+      elif [[ -e "${repo_path}/MERGE_HEAD" ]]; then
       mode=" >M<"
-    elif [[ -e "${repo_path}/rebase" || -e "${repo_path}/rebase-apply" || -e "${repo_path}/rebase-merge" || -e "${repo_path}/../.dotest" ]]; then
+      elif [[ -e "${repo_path}/rebase" || -e "${repo_path}/rebase-apply" || -e "${repo_path}/rebase-merge" || -e "${repo_path}/../.dotest" ]]; then
       mode=" >R>"
     fi
-
+    
     setopt promptsubst
     autoload -Uz vcs_info
-
+    
     zstyle ':vcs_info:*' enable git
     zstyle ':vcs_info:*' get-revision true
     zstyle ':vcs_info:*' check-for-changes true
@@ -128,25 +128,25 @@ prompt_git() {
 }
 
 prompt_bzr() {
-    (( $+commands[bzr] )) || return
-    if (bzr status >/dev/null 2>&1); then
-        status_mod=`bzr status | head -n1 | grep "modified" | wc -m`
-        status_all=`bzr status | head -n1 | wc -m`
-        revision=`bzr log | head -n2 | tail -n1 | sed 's/^revno: //'`
-        if [[ $status_mod -gt 0 ]] ; then
-            prompt_segment yellow black
-            echo -n "bzr@"$revision "✚ "
-        else
-            if [[ $status_all -gt 0 ]] ; then
-                prompt_segment yellow black
-                echo -n "bzr@"$revision
-
-            else
-                prompt_segment green black
-                echo -n "bzr@"$revision
-            fi
-        fi
+  (( $+commands[bzr] )) || return
+  if (bzr status >/dev/null 2>&1); then
+    status_mod=`bzr status | head -n1 | grep "modified" | wc -m`
+    status_all=`bzr status | head -n1 | wc -m`
+    revision=`bzr log | head -n2 | tail -n1 | sed 's/^revno: //'`
+    if [[ $status_mod -gt 0 ]] ; then
+      prompt_segment yellow black
+      echo -n "bzr@"$revision "✚ "
+    else
+      if [[ $status_all -gt 0 ]] ; then
+        prompt_segment yellow black
+        echo -n "bzr@"$revision
+        
+      else
+        prompt_segment green black
+        echo -n "bzr@"$revision
+      fi
     fi
+  fi
 }
 
 prompt_hg() {
@@ -158,7 +158,7 @@ prompt_hg() {
         # if files are not added
         prompt_segment red white
         st='±'
-      elif [[ -n $(hg prompt "{status|modified}") ]]; then
+        elif [[ -n $(hg prompt "{status|modified}") ]]; then
         # if any modification
         prompt_segment yellow black
         st='±'
@@ -174,7 +174,7 @@ prompt_hg() {
       if `hg st | grep -q "^\?"`; then
         prompt_segment red black
         st='±'
-      elif `hg st | grep -q "^[MA]"`; then
+        elif `hg st | grep -q "^[MA]"`; then
         prompt_segment yellow black
         st='±'
       else
@@ -208,7 +208,7 @@ prompt_status() {
   [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
-
+  
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
@@ -235,5 +235,6 @@ build_prompt() {
 #RPROMPT='$(right_prompt)'
 
 PROMPT='%{%f%b%k%}$(build_prompt) ' # Left Prompt
-RPROMPT='%*' # Right Prompt, time
+RPROMPT='$(git_prompt_useremail_symbol) '
+# RPROMPT='%*' # Right Prompt, time
 # RPROMPT='%* - %D{%f/%m/%y}' # Right Prompt, time & day

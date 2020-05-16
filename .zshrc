@@ -16,7 +16,7 @@ export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="amuse"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -71,9 +71,9 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   zsh-completions
-  extract # extracts archive file passed to it.
-  sudo    # hit ESC twice to add `sudo`in front of current command
-  osx     # control macOS from ZSH, commands below:
+  extract              # extracts archive file argument
+  sudo                 # hit ESC twice to add `sudo`in front of current command
+  osx                  # control macOS from ZSH, commands below:
   # pfd           return the path of the frontmost Finder window
   # pfs           return the current Finder selection
   # cdf           cd to the current Finder directory
@@ -146,3 +146,10 @@ bindkey -s "\C-r" "\eqhstr\n"   # bind hstr to Ctrl-r (for Vi mode check doc)
 # Java Environment Manager
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# CLI History settings
+export HISTTIMEFORMAT="%h %d %H:%M:%S " # add date & time to records
+export HISTSIZE=50000                   # n commands to remember
+export HISTFILESIZE=50000               # n lines in history file
+export PROMPT_COMMAND='history -a'      # store history immediately
+export HISTCONTROL=ignoreboth:erasedups # ignore duplicates & empty cmds

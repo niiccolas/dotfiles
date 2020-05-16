@@ -6,6 +6,8 @@ tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-drivers' # Cask of drivers (https://github.com/Homebrew/homebrew-cask-drivers)
+tap 'heroku/brew' # heroku-cli
+tap 'mongodb/brew'
 
 # Shell
 brew 'bash' # Bash 4
@@ -66,7 +68,10 @@ brew 'asciinema'
 cask 'devdocs' # self-hosted app container for devdocs.io
 cask 'fontforge'
 cask 'sourcetree'
+brew 'heroku'
 ## Dev - back-end
+brew 'mongodb-community@4.2'
+cask 'robo-3t'
 brew 'gradle'
 
 # Collaboration

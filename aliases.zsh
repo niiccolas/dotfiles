@@ -50,5 +50,5 @@ alias brup="brew upgrade && brew cask upgrade"
 # Crontab
 alias crontab="export EDITOR=vim; crontab"
 
-# Angular
-alias ngso="ng serve -o"
+# Mongo
+alias gomongo="mongod --config /usr/local/etc/mongod.conf"
