@@ -72,6 +72,7 @@ brew 'heroku'
 ## Dev - back-end
 brew 'mongodb-community@4.2'
 cask 'robo-3t'
+cask 'mongodb-compass'
 brew 'gradle'
 
 # Collaboration
@@ -131,6 +132,7 @@ cask 'libreoffice-language-pack'
 cask 'calibre'
 cask 'garmin-express'
 cask 'go2shell'
+cask 'sensiblesidebuttons'
 
 # macOs quicklook plugins
 cask 'qlcolorcode'
