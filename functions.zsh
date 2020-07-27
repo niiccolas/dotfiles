@@ -89,3 +89,9 @@ rfc() {
   printf "import React from 'react';\n\nimport './%s.scss';\n" $1 > $1.jsx;
   touch $1.{scss,spec.js}
 }
+
+# ReactJS Component shell builder
+clearport() {
+  lsof -n -i :$1 |grep LISTEN
+  kill -9 $(lsof -i:$1 -t) 2> /dev/null && printf "\e[1;32mPort %d cleared\e[m 🧽\n" $1
+}

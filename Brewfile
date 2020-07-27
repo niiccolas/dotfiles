@@ -69,6 +69,7 @@ cask 'devdocs' # self-hosted app container for devdocs.io
 cask 'fontforge'
 cask 'sourcetree'
 brew 'heroku'
+brew 'github/gh/gh' # GitHub in the terminal
 ## Dev - back-end
 brew 'mongodb-community@4.2'
 cask 'robo-3t'
@@ -94,7 +95,6 @@ cask 'dropbox'
 cask 'sync'
 cask 'qbittorrent'
 cask 'nextcloud'
-brew 'syncthing'
 
 # Video
 cask 'vlc'

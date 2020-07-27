@@ -36,9 +36,6 @@ node_modules/
 # Ruby files
 .byebug_history
 
-# Local .gitignore config
-.gitignore
-
 # Custom ignore files
 *.ignore
 *.ign
