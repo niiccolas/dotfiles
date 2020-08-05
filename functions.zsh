@@ -86,8 +86,9 @@ findd () {
 # ReactJS Component shell builder
 rfc() {
   mkdir $1; cd $1;
-  printf "import React from 'react';\n\nimport './%s.scss';\n" $1 > $1.jsx;
-  touch $1.{scss,spec.js}
+  printf "import React from 'react';\n\nimport './%s.scss';\n\nconst $1 = () => {\n  return <div>$1</div>\n};\n\nexport default $1" $1 > $1.jsx;
+  printf "import %s from './%s';\n" $1 $1 > $1.spec.js;
+  touch $1.scss;
 }
 
 # ReactJS Component shell builder
