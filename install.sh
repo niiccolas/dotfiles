@@ -118,7 +118,7 @@ macInstallation() {
   else
     mkdir ~/.config/mpv
   fi
-  ln -s ~/.dotfiles/mpv/mpv.conf ~/.config/mpv/mpv.conf
+  ln -s ~/.dotfiles/mpv/* ~/.config/mpv
 }
 
 echo "\n\033[31m******************************************************************\033[0m"
