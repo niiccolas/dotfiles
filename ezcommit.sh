@@ -29,4 +29,4 @@ else
   fi
 fi
 
-echo $(git commit -m "$command")
+echo $(git commit -m "$command" --no-verify)

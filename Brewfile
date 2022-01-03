@@ -38,23 +38,16 @@ brew 'sqlite'
 brew 'db-browser-for-sqlite'
 cask 'postgres'
 cask 'pgadmin4'
-# brew 'node' # Disabled in favor of nvm
 brew 'vim'
-cask 'java'
-cask 'mysqlworkbench'
-cask 'mamp'
-cask 'sublime-text'
 cask 'visual-studio-code'
 cask 'typora' # Markdown editor
 cask 'postman'
-cask 'cyberduck'
 cask 'meld' # GUI diff tool
 brew 'lorem' # CLI Lorem Ipsum generator
 cask 'transmit'
 cask 'tower'
-cask 'now' # Project deployment
 cask 'docker'
-cask 'insomnia' # REST client
+cask 'insomnia' # Postman alternative
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'focus' # No focus, no dev
@@ -70,6 +63,10 @@ cask 'fontforge'
 cask 'sourcetree'
 brew 'heroku'
 brew 'github/gh/gh' # GitHub in the terminal
+brew "tldr" # shortened MAN for unix commands
+brew 'firefox-developer-edition'
+brew "jq"
+brew "ncdu"
 ## Dev - back-end
 brew 'mongodb-community@4.2'
 cask 'robo-3t'

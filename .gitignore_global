@@ -42,6 +42,8 @@ node_modules/
 *.tmp
 ignore_*
 ignore-*
+*.ignore.*
+*.secret.*
 ign_*
 ign-*
 tmp-*

@@ -1,3 +1,7 @@
+
+# Secret ENV variables
+source ~/.dotfiles/ENV.secret.sh
+
 # Path to your dotfiles installation.
 export DOTFILES=$HOME/.dotfiles
 
@@ -71,9 +75,10 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   zsh-completions
-  extract              # extracts archive file argument
-  sudo                 # hit ESC twice to add `sudo`in front of current command
-  osx                  # control macOS from ZSH, commands below:
+  colorize # syntax-highlight file contents of over 300 supported languages and other text formats.
+  extract # extracts archive file argument
+  sudo # hit ESC twice to add `sudo`in front of current command
+  macos # control macOS from ZSH using the commands below:
   # pfd           return the path of the frontmost Finder window
   # pfs           return the current Finder selection
   # cdf           cd to the current Finder directory
@@ -86,6 +91,7 @@ plugins=(
   # itunes 	      control iTunes. Use itunes -h for usage details
   # spotify 	    control Spotify and search by artist, album, track…
   # rmdsstore 	  remove .DS_Store files recursively in a directory
+  last-working-dir # Keeps track of the last used working directory and automatically jumps into it for new shells
 )
 
 autoload -U compinit && compinit #reloading completion for zsh-completions plugin
@@ -113,7 +119,7 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Include Z
+# Include Z. Jump around quickly to frequently visited directories
 . /usr/local/etc/profile.d/z.sh
 
 # Load zsh Aliases file if included in dotfiles folder
@@ -128,9 +134,6 @@ if [ -f $DOTFILES/functions.zsh ]; then
   . $DOTFILES/functions.zsh
 fi
 
-# Shell start commands
-echo "\e[0;35m$(fortune -s)\e[0m\n" # Random short (-s) epigram
-
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 export PATH=$HOME/.nvm:$PATH
@@ -143,9 +146,8 @@ export HISTFILE=~/.zsh_history  # ensure history file visibility
 export HSTR_CONFIG=hicolor      # get more colors
 bindkey -s "\C-r" "\eqhstr\n"   # bind hstr to Ctrl-r (for Vi mode check doc)
 
-# Java Environment Manager
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# Java install location
+export JAVA_HOME="/usr/local/Cellar/openjdk@11/11.0.12"
 
 # CLI History settings
 export HISTTIMEFORMAT="%h %d %H:%M:%S " # add date & time to records
@@ -153,3 +155,7 @@ export HISTSIZE=50000                   # n commands to remember
 export HISTFILESIZE=50000               # n lines in history file
 export PROMPT_COMMAND='history -a'      # store history immediately
 export HISTCONTROL=ignoreboth:erasedups # ignore duplicates & empty cmds
+
+# Yarn Version Manager - https://yvm.js.org/docs/overview
+export YVM_DIR=/Users/niic/.yvm
+[ -r $YVM_DIR/yvm.sh ] && source $YVM_DIR/yvm.sh

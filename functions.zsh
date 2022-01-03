@@ -87,12 +87,13 @@ findd () {
 rfc() {
   mkdir $1; cd $1;
   printf "import React from 'react';\n\nimport './%s.scss';\n\nconst $1 = () => {\n  return <div>$1</div>\n};\n\nexport default $1" $1 > $1.jsx;
-  printf "import %s from './%s';\n" $1 $1 > $1.spec.js;
+  printf "import React from 'react';\nimport renderer from 'react-test-renderer';\n\nimport %s from './%s';\n\ndescribe('%s', () => {\n  it('should render correctly', () => {\n    const tree = renderer.create(<%s />).toJSON();\n    expect(tree).toMatchSnapshot();\n  });\n});" $1 $1 $1 $1 > $1.spec.js;
   touch $1.scss;
 }
 
-# ReactJS Component shell builder
-clearport() {
+
+# Kill processes using given port
+killport() {
   lsof -n -i :$1 |grep LISTEN
   kill -9 $(lsof -i:$1 -t) 2> /dev/null && printf "\e[1;32mPort %d cleared\e[m 🧽\n" $1
 }

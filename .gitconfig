@@ -34,5 +34,8 @@
 	trustExitCode = true
 [init]
 	templatedir = /Users/niic/.git-templates
+	defaultBranch = develop
 [push]
 	default = current
+[pull]
+	rebase = false

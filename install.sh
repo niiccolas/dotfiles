@@ -15,6 +15,9 @@ macInstallation() {
   sudo scutil --set LocalHostName $REPLY
   sudo scutil --set HostName $REPLY
   
+  # Refresh FontBook database
+  sudo atsutil databases -remove
+  
   read -p "Choose a login window message: "
   echo $REPLY
   sudo defaults write   /Library/Preferences/com.apple.loginwindow  LoginwindowText "$REPLY"
@@ -66,7 +69,7 @@ macInstallation() {
   
   # User Fonts
   sudo rm -rf $HOME/Library/Fonts
-  ln -s $HOME/Sync/Fonts $HOME/Library/Fonts
+  ln -s "$HOME/Google Drive/Apps/Fonts" $HOME/Library/Fonts
   
   # Mackup
   ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
