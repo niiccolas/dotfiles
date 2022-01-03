@@ -8,11 +8,6 @@ export DOTFILES=$HOME/.dotfiles
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-
-# Enable Ruby rbenv
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
-
 # Enable Postgres.app cli
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 
@@ -140,11 +135,17 @@ export PATH=$HOME/.nvm:$PATH
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# HSTR configuration
+# ZSH history configuration
 alias hh=hstr                   # hh to be alias for hstr
-export HISTFILE=~/.zsh_history  # ensure history file visibility
-export HSTR_CONFIG=hicolor      # get more colors
 bindkey -s "\C-r" "\eqhstr\n"   # bind hstr to Ctrl-r (for Vi mode check doc)
+HISTFILE=~/.zsh_history  # ensure history file visibility
+HSTR_CONFIG=hicolor      # get more colors
+setopt APPEND_HISTORY # Don't erase history
+setopt EXTENDED_HISTORY # Add additional data to history like timestamp
+setopt INC_APPEND_HISTORY # Add immediately
+setopt HIST_FIND_NO_DUPS # Don't show duplicates in search
+setopt NO_HIST_BEEP # Don't beep
+setopt SHARE_HISTORY # Share history between session/terminals
 
 # Java install location
 export JAVA_HOME="/usr/local/Cellar/openjdk@11/11.0.12"
