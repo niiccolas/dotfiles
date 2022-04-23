@@ -1,4 +1,3 @@
-
 # Secret ENV variables
 source ~/.dotfiles/ENV.secret.sh
 
@@ -65,28 +64,16 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  zsh-syntax-highlighting
+  zsh-z # jump around quickly to frequently visited directories
   zsh-autosuggestions
   zsh-completions
-  colorize # syntax-highlight file contents of over 300 supported languages and other text formats.
-  extract # extracts archive file argument
-  sudo # hit ESC twice to add `sudo`in front of current command
-  macos # control macOS from ZSH using the commands below:
-  # pfd           return the path of the frontmost Finder window
-  # pfs           return the current Finder selection
-  # cdf           cd to the current Finder directory
-  # pushdf        pushd to the current Finder directory
-  # quick-look    quick Look a specified file
-  # man-preview   open a specified man page in Preview
-  # trash         move a specified file to the Trash
-  # showfiles 	  show hidden files
-  # hidefiles 	  hide the hidden files
-  # itunes 	      control iTunes. Use itunes -h for usage details
-  # spotify 	    control Spotify and search by artist, album, track…
-  # rmdsstore 	  remove .DS_Store files recursively in a directory
+  colorize         # syntax-highlight file contents of over 300 supported languages and other text formats.
+  extract          # extracts archive file argument
+  sudo             # hit ESC twice to add `sudo`in front of current command
+  macos            # control macOS from ZSH using the commands below:
   last-working-dir # Keeps track of the last used working directory and automatically jumps into it for new shells
+  zsh-syntax-highlighting
 )
 
 autoload -U compinit && compinit #reloading completion for zsh-completions plugin
@@ -114,9 +101,6 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Include Z. Jump around quickly to frequently visited directories
-. /usr/local/etc/profile.d/z.sh
-
 # Load zsh Aliases file if included in dotfiles folder
 # using the . builtin (aka source)
 if [ -f $DOTFILES/aliases.zsh ]; then
@@ -132,20 +116,20 @@ fi
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 export PATH=$HOME/.nvm:$PATH
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # ZSH history configuration
-alias hh=hstr                   # hh to be alias for hstr
-bindkey -s "\C-r" "\eqhstr\n"   # bind hstr to Ctrl-r (for Vi mode check doc)
-HISTFILE=~/.zsh_history  # ensure history file visibility
-HSTR_CONFIG=hicolor      # get more colors
-setopt APPEND_HISTORY # Don't erase history
-setopt EXTENDED_HISTORY # Add additional data to history like timestamp
-setopt INC_APPEND_HISTORY # Add immediately
-setopt HIST_FIND_NO_DUPS # Don't show duplicates in search
-setopt NO_HIST_BEEP # Don't beep
-setopt SHARE_HISTORY # Share history between session/terminals
+alias hh=hstr                 # hh to be alias for hstr
+bindkey -s "\C-r" "\eqhstr\n" # bind hstr to Ctrl-r (for Vi mode check doc)
+HISTFILE=~/.zsh_history       # ensure history file visibility
+HSTR_CONFIG=hicolor           # get more colors
+setopt APPEND_HISTORY         # Don't erase history
+setopt EXTENDED_HISTORY       # Add additional data to history like timestamp
+setopt INC_APPEND_HISTORY     # Add immediately
+setopt HIST_FIND_NO_DUPS      # Don't show duplicates in search
+setopt NO_HIST_BEEP           # Don't beep
+setopt SHARE_HISTORY          # Share history between session/terminals
 
 # Java install location
 export JAVA_HOME="/usr/local/Cellar/openjdk@11/11.0.12"
@@ -160,3 +144,6 @@ export HISTCONTROL=ignoreboth:erasedups # ignore duplicates & empty cmds
 # Yarn Version Manager - https://yvm.js.org/docs/overview
 export YVM_DIR=/Users/niic/.yvm
 [ -r $YVM_DIR/yvm.sh ] && source $YVM_DIR/yvm.sh
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
