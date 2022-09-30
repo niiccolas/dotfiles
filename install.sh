@@ -100,6 +100,8 @@ macInstallation() {
   mkdir -p $HOME/.git-templates/hooks
   ln -s $HOME/.dotfiles/hooks/pre-commit $HOME/.git-templates/hooks/pre-commit
   git config --global init.templatedir $HOME/.git-templates
+  # set vscode as git editor, "--wait" flag mandatory!
+  git config --global core.editor "code --wait"
 
   # todo: investigate user fonts sync
   sudo rm -rf $HOME/Library/Fonts

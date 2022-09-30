@@ -16,12 +16,14 @@ alias xrcm="exercism"
 alias myip="curl http://ipecho.net/plain; echo"
 alias ezhtml5=“~/.dotfiles/ezhtml5.sh”
 alias usage="du -h -d1|sort --reverse -h" # descending list of current folder content sizes
-alias cat="ccat" # add colors to `cat` https://github.com/owenthereal/ccat
+alias cat="ccat"                          # add colors to `cat` https://github.com/owenthereal/ccat
 alias rmrfy="rm -rf node_modules && yarn install"
 alias rmrfn="rm -rf node_modules && npm install"
+alias dot="echo 'code ~/.dotfiles' && code ~/.dotfiles" # easy dotfiles editing
+# source zshs
 alias szsh="echo 'source ~/.zshrc' && source ~/.zshrc"
 alias szs="echo 'source ~/.zshrc' && source ~/.zshrc"
-alias dot="echo 'code ~/.dotfiles' && code ~/.dotfiles" # easy dotfiles editing
+alias sz=szs
 
 # Directories
 alias dotfiles="cd $DOTFILES"
@@ -75,6 +77,11 @@ alias crontab="export EDITOR=vim; crontab"
 alias gomongo="mongod --config /usr/local/etc/mongod.conf &"
 
 # ONE
-alias yap="yarn api:proxy"
-alias yd="yarn dev"
-alias yj="yarn jest --watch --verbose"
+alias yap="nvm use && yarn api:proxy"
+alias yd="nvm use && yarn dev"
+alias yj="nvm use && yarn jest --watch --verbose"
+alias yj2="nvm use && yarn jest2 --watch --verbose"
+
+# create-react-app
+alias yd="nvm use && yarn dev"
+alias yt="nvm use && yarn test"

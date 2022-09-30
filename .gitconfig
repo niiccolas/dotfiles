@@ -1,41 +1,52 @@
 [core]
-	excludesfile = /Users/niic/.gitignore_global
-  editor = /usr/local/bin/code --wait
-  autocrlf = input
+excludesfile = /Users/niic/.gitignore_global
+editor = code --wait
+autocrlf = input
 
 [user]
-	email = 40167702+niiccolas@users.noreply.github.com
-	name = niiccolas
+email = 40167702+niiccolas@users.noreply.github.com
+name = niiccolas
 [credential]
-  helper = osxkeychain
+helper = osxkeychain
 [commit]
-	template = ~/.gitmessage.txt
+template = ~/.gitmessage.txt
 [color]
-  ui = auto
+ui = auto
 
 # VSCODE AS GIT DIFF/MERGE TOOL
 [merge]
-  tool = vscode
+tool = vscode
 [mergetool "vscode"]
-  cmd = code --wait $MERGED
+cmd = code --wait $MERGED
 [diff]
-  tool = vscode
+tool = vscode
 [difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+cmd = code --wait --diff $LOCAL $REMOTE
 
 # CONDITIONAL CONFIG FILE FOR PROFESSIONAL PROJECTS
 [includeIf "gitdir:~/Sync/CodePro/rd/"]
-  path = ~/.gitconfig-pro
+path = ~/.gitconfig-pro
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+path =
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+trustExitCode = true
 [init]
-	templatedir = /Users/niic/.git-templates
-	defaultBranch = develop
+templatedir = /Users/niic/.git-templates
+defaultBranch = develop
 [push]
-	default = current
+default = current
 [pull]
-	rebase = false
+rebase = false
+[filter "lfs"]
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
+
+[alias]
+# IGNORE FILES LOCALLY
+ignore = update-index --skip-worktree
+unignore = update-index --no-skip-worktree
+ignored = !git ls-files -v | grep "^[[:lower:]]"

@@ -90,18 +90,21 @@ cask 'zeplin'
 cask 'skype'
 cask 'franz'
 cask 'zoom'
+cask 'discord'
 
 # Web
 cask 'google-drive'
 cask 'sync'
 cask 'dropbox'
+cask 'synology-note-station-client'
 
-# Video
+# Video/Sound
 cask 'vlc'
 cask 'mpv'
 cask 'caption' # Subtitles retriever
 cask 'musicbrainz-picard'
 cask 'mediahuman-audio-converter'
+brew 'switchaudio-osx' # switch macos audio output
 
 # macOs
 cask 'alfred'
