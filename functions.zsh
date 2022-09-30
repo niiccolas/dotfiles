@@ -86,8 +86,9 @@ findd () {
 # ReactJS Component shell builder
 rfc() {
   mkdir $1; cd $1;
-  printf "import React from 'react';\n\nimport './%s.scss';\n\nconst $1 = () => {\n  return <div>$1</div>\n};\n\nexport default $1" $1 > $1.jsx;
-  printf "import React from 'react';\nimport renderer from 'react-test-renderer';\n\nimport %s from './%s';\n\ndescribe('%s', () => {\n  it('should render correctly', () => {\n    const tree = renderer.create(<%s />).toJSON();\n    expect(tree).toMatchSnapshot();\n  });\n});" $1 $1 $1 $1 > $1.spec.js;
+  # printf "import React from 'react';\n\nimport './%s.scss';\n\nconst $1 = () => {\n  return <div>$1</div>\n};\n\nexport default $1" $1 > $1.tsx;
+  printf "import React from 'react';\n\nimport './%s.scss';\n\nconst $1 = () => {\n  return <div>$1</div>;\n};\n\nexport default $1;" $1 > $1.tsx;
+  printf "import React from 'react';\nimport renderer from 'react-test-renderer';\n\nimport %s from './%s';\n\ndescribe('%s', () => {\n  it('should render correctly', () => {\n    const tree = renderer.create(<%s />).toJSON();\n    expect(tree).toMatchSnapshot();\n  });\n});" $1 $1 $1 $1 > $1.test.tsx;
   touch $1.scss;
 }
 

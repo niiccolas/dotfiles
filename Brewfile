@@ -1,134 +1,131 @@
 # Taps
-tap 'caskroom/cask'
+tap 'homebrew/cask'
 tap 'buo/cask-upgrade' # <brew cu> Upgrades outdated Cask apps (https://github.com/buo/homebrew-cask-upgrade)
-tap 'caskroom/eid'
-tap 'caskroom/fonts'
-tap 'caskroom/versions'
+tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-drivers' # Cask of drivers (https://github.com/Homebrew/homebrew-cask-drivers)
 tap 'heroku/brew' # heroku-cli
 tap 'mongodb/brew'
+tap 'buo/cask-upgrade'
+tap 'homebrew/bundle'
+tap 'homebrew/cask'
+tap 'homebrew/cask-versions'
+tap 'homebrew/core'
+brew 'svn' # required to brew install font casks
+tap 'homebrew/cask-fonts'
 
 # Shell
 brew 'bash' # Bash 4
-brew 'coreutils' # Those that come with macOS are outdated
+brew 'coreutils' # replace outdated macOS utils 
 brew 'colordiff'
 brew 'git'
 brew 'grep'
 brew 'mas' # Mac App Store from the CLI
 brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 brew 'htop'
+brew 'hstr'
 brew 'trash'
 brew 'tree'
-brew 'z'
 brew 'zsh'
-brew 'zsh-autosuggestions'
-brew 'zsh-completions'
-brew 'translate-shell'
 brew 'fortune'
 brew 'lolcat'
 brew 'lynx'
 brew 'pandoc'
+brew 'ccat'
+brew 'chroma'
 
 # Dev
-brew 'rbenv'
+brew 'yarn'
+brew 'nvm' # node version manager
+brew 'openjdk@17'
 brew 'php'
 brew 'mysql'
 brew 'sqlite'
-brew 'db-browser-for-sqlite'
-cask 'postgres'
+cask 'db-browser-for-sqlite'
+brew 'postgresql'
 cask 'pgadmin4'
 brew 'vim'
 cask 'visual-studio-code'
-cask 'typora' # Markdown editor
+cask 'mark-text' # Markdown editor
+cask 'zettlr' # Markdown editor
 cask 'postman'
+cask 'insomnia' # Postman alternative
 cask 'meld' # GUI diff tool
 brew 'lorem' # CLI Lorem Ipsum generator
-cask 'transmit'
-cask 'tower'
+cask 'cyberduck'
 cask 'docker'
-cask 'insomnia' # Postman alternative
-cask 'virtualbox'
-cask 'virtualbox-extension-pack'
-cask 'focus' # No focus, no dev
-cask 'timing'
 cask 'iterm2'
 cask 'cool-retro-term'
 cask 'imageoptim' # Image optimization
-brew 'imageoptim-cli'
 brew 'mackup'
 brew 'asciinema'
-cask 'devdocs' # self-hosted app container for devdocs.io
-cask 'fontforge'
+cask 'devdocs' # electron container for devdocs.io
 cask 'sourcetree'
 brew 'heroku'
-brew 'github/gh/gh' # GitHub in the terminal
-brew "tldr" # shortened MAN for unix commands
-brew 'firefox-developer-edition'
-brew "jq"
-brew "ncdu"
-## Dev - back-end
-brew 'mongodb-community@4.2'
+cask 'github'
+brew 'gh' # GitHub CLI
+brew 'tldr' # shortened MAN
+cask 'firefox-developer-edition'
+brew 'jq' # json CLI
+brew 'ncdu'
+cask 'google-chrome'
+brew 'mongodb/brew/mongodb-community'
 cask 'robo-3t'
 cask 'mongodb-compass'
 brew 'gradle'
 
+# UI
+cask 'inkscape'
+cask 'font-ibm-plex-mono'
+cask 'font-sf-pro'
+cask 'font-sf-mono'
+cask 'font-sf-compact'
+cask 'fontforge'
+
 # Collaboration
-# cask 'quip'
 cask 'shuttle'
 cask 'slack'
+cask 'microsoft-teams'
 cask 'zeplin'
 cask 'skype'
 cask 'franz'
 cask 'zoom'
+cask 'discord'
 
-# Internet
-cask 'google-chrome'
-cask 'google-backup-and-sync'
-cask 'firefox'
-cask 'thunderbird'
-cask 'raindropio' # Bookmarks sync service
-cask 'dropbox'
+# Web
+cask 'google-drive'
 cask 'sync'
-cask 'qbittorrent'
-cask 'nextcloud'
+cask 'dropbox'
+cask 'synology-note-station-client'
 
-# Video
+# Video/Sound
 cask 'vlc'
 cask 'mpv'
 cask 'caption' # Subtitles retriever
 cask 'musicbrainz-picard'
 cask 'mediahuman-audio-converter'
+brew 'switchaudio-osx' # switch macos audio output
 
 # macOs
 cask 'alfred'
 cask 'bartender'
-cask 'apptivate' # System-wide hotkeys
 cask 'appcleaner'
 cask 'balenaetcher' # Flash IMG/ISO to USB
-cask 'cronnix' # Cron jobs manager
 cask 'desktoputility' # Show/hide desktop, library, dotfiles
-cask 'spectacle' # Window manager
-cask 'caffeine'
-# cask 'rocket' # Emojis galore 🎷 >> redundant with Apple's emoji tray
+cask 'rectangle' # macOs window manager
 cask 'numi'
-cask 'aerial' # Apple TV Aerial Views Screen Saver
 cask 'michaelvillar-timer'
-cask 'freefilesync'
-cask 'daisydisk' # Disk usage stats
+# cask 'freefilesync'
 cask 'grandperspective' # Disk usage stats
-cask 'hazel' # Automated folder organization
 cask 'find-empty-folders'
 cask 'dupeguru'
 cask 'namechanger'
 cask 'easyfind'
 cask 'paragon-ntfs'
 cask 'grammarly'
-cask 'libreoffice'
-cask 'libreoffice-language-pack'
+cask 'onlyoffice'
 cask 'calibre'
 cask 'garmin-express'
-cask 'go2shell'
 cask 'sensiblesidebuttons'
 
 # macOs quicklook plugins
@@ -148,21 +145,13 @@ cask 'cryptomator'
 cask 'switchhosts'
 cask 'radio-silence'
 cask 'turtl'
-cask 'gpg-suite'
-cask 'malwarebytes'
-
-# Hardware
-cask 'logitech-options'
-cask 'ubiquiti-unifi-controller'
-cask 'wakeonlan'
 
 # App Store
-mas 'ColorDrops', id: 1277028218
-mas 'Telephone', id: 406825478 # SIP app
+mas 'ColorSlurp', id: 1287239339
 mas 'WhatsApp', id: 1147396723
-mas 'Loremify', id: 1028877632 # GUI Lorem Ipsum generator
+# mas 'Loremify', id: 1028877632 # GUI Lorem Ipsum generator
 mas 'Giphy Capture', id: 668208984
 mas 'Shazam', id: 897118787
-mas 'The Unarchiver', id: 425424353
-mas 'Irvue', id: 1039633667 # Wallpaper manager
 mas 'iPic', id: 1101244278 # Image uploader
+mas 'HotKey', id: 975890633 # System-wide hotkeys
+mas 'AdGuard for Safari', id: 1440147259
